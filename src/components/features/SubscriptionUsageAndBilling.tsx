@@ -74,6 +74,54 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
     }
   };
 
+  const handleGenerateDemoInvoice = (planType: 'annuel' | 'palmares' | 'repetiteur') => {
+    const targetUser = userProfile || {
+      name: 'Élève Démo Kharandi',
+      phone: '+224 620 12 34 56',
+      email: 'demo@kharandi.gn',
+      city: 'Conakry, Guinée',
+      role: 'STUDENT'
+    };
+    
+    let details: {
+      planId: string;
+      planName: string;
+      amount: number;
+      period: string;
+      paymentMethod: 'Orange Money Guinée' | 'MTN Mobile Money' | 'Carte Bancaire' | 'Wallet Kharandi';
+    } = {
+      planId: 'annuel',
+      planName: 'Offre Élève Premium Annuel (Kharandi 365)',
+      amount: 45000,
+      period: 'Annuel (365 jours)',
+      paymentMethod: 'Orange Money Guinée',
+    };
+    if (planType === 'palmares') {
+      details = {
+        planId: 'palmares',
+        planName: 'Pass Palmarès National des Écoles & Fiches d\'Évaluation',
+        amount: 250000,
+        period: 'Annuel (365 jours)',
+        paymentMethod: 'MTN Mobile Money',
+      };
+    } else if (planType === 'repetiteur') {
+      details = {
+        planId: 'repetiteur',
+        planName: 'Abonnement Répétiteur Certifié & Mise en relation',
+        amount: 50000,
+        period: 'Mensuel (30 jours)',
+        paymentMethod: 'Orange Money Guinée',
+      };
+    }
+
+    const newInv = recordNewInvoice(targetUser, details);
+    setInvoices(getUserInvoices(targetUser));
+    setUsage(getSubscriptionUsage(targetUser));
+    toast.success(`Facture démo ${newInv.id} générée !`);
+    setTab('invoices');
+    setSelectedInvoice(newInv);
+  };
+
   const formatGNF = (n: number) => new Intl.NumberFormat('fr-GN').format(n) + ' GNF';
   const formatDate = (d: string) => {
     try {
@@ -97,6 +145,44 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
 
   return (
     <div className="space-y-6 text-left">
+      {/* BANNIÈRE MODE DÉMO INTERACTIF */}
+      <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-cyan-950 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-slate-700/60 shadow-md">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-[#18bfd6]/20 text-[#18bfd6] flex items-center justify-center font-black shrink-0">
+            <Sparkles size={20} />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-black uppercase tracking-widest bg-[#18bfd6] text-slate-950 px-2 py-0.5 rounded-md">
+                Mode Démo Interactif
+              </span>
+              <span className="text-xs text-slate-300 font-bold">Générateur de test instantané</span>
+            </div>
+            <p className="text-xs text-slate-300 font-medium mt-0.5">
+              Testez la génération de factures et la mise à jour dynamique des jauges en 1 clic :
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 flex-wrap shrink-0">
+          <button
+            onClick={() => handleGenerateDemoInvoice('annuel')}
+            className="px-3.5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-xl text-xs font-bold border border-white/10 transition-colors flex items-center gap-1.5 cursor-pointer"
+          >
+            <Zap size={13} className="text-[#18bfd6]" />
+            <span>+ Facture Démo (45 000 GNF)</span>
+          </button>
+
+          <button
+            onClick={() => handleGenerateDemoInvoice('palmares')}
+            className="px-3.5 py-2 bg-[#fcb303] hover:bg-amber-400 text-slate-950 rounded-xl text-xs font-black transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+          >
+            <Trophy size={13} />
+            <span>+ Reçu Palmarès (250 000 GNF)</span>
+          </button>
+        </div>
+      </div>
+
       {/* TABS SELECTOR */}
       <div className="flex items-center justify-between flex-wrap gap-4 border-b border-slate-100 pb-4">
         <div className="flex items-center gap-2 p-1.5 bg-slate-100 rounded-2xl">

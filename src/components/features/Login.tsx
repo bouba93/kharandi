@@ -567,9 +567,81 @@ export const Login: React.FC = () => {
                   />
                 </div>
 
+                {/* BLOC ACCÈS DÉMO INSTANTANÉ */}
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-50 via-slate-50 to-amber-50/50 border border-cyan-200/60 text-left space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#18bfd6] flex items-center gap-1.5">
+                      <Sparkles size={13} /> Accès Démo Instantané (1-Clic)
+                    </span>
+                    <span className="text-[9px] font-bold text-slate-400 bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                      Sans Code SMS
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-600 font-medium">
+                    Explorez immédiatement Kharandi avec des comptes pré-configurés :
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 pt-0.5">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setGuestMode(true, 'student');
+                        toast.success("Bienvenue en mode Démo Élève / Étudiant Premium !");
+                        _go();
+                      }}
+                      className="p-2.5 bg-white hover:bg-cyan-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-[#18bfd6] cursor-pointer group"
+                    >
+                      <div className="text-xs font-black text-slate-900 group-hover:text-[#18bfd6] flex items-center gap-1">
+                        🎓 Élève Démo
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Pass Annuel Actif</div>
+                    </button>
 
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setGuestMode(true, 'repetiteur');
+                        toast.success("Bienvenue en mode Démo Professeur / Répétiteur !");
+                        _go();
+                      }}
+                      className="p-2.5 bg-white hover:bg-emerald-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-emerald-500 cursor-pointer group"
+                    >
+                      <div className="text-xs font-black text-slate-900 group-hover:text-emerald-600 flex items-center gap-1">
+                        👨‍🏫 Prof Démo
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Répétiteur Vérifié</div>
+                    </button>
 
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setGuestMode(true, 'seller');
+                        toast.success("Bienvenue en mode Démo Vendeur Kharandi Makiti !");
+                        _go();
+                      }}
+                      className="p-2.5 bg-white hover:bg-purple-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-purple-500 cursor-pointer group"
+                    >
+                      <div className="text-xs font-black text-slate-900 group-hover:text-purple-600 flex items-center gap-1">
+                        🏪 Vendeur Démo
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Librairie Makiti</div>
+                    </button>
 
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setGuestMode(true, 'admin');
+                        toast.success("Bienvenue en mode Démo Administrateur !");
+                        _go();
+                      }}
+                      className="p-2.5 bg-white hover:bg-amber-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-amber-500 cursor-pointer group"
+                    >
+                      <div className="text-xs font-black text-slate-900 group-hover:text-amber-600 flex items-center gap-1">
+                        🛡️ Admin Démo
+                      </div>
+                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Gestion Globale</div>
+                    </button>
+                  </div>
+                </div>
               </motion.div>
             )}
 
