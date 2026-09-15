@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Bell, BookOpen, Home, User, Menu, X, ShoppingBag, ShoppingCart, CreditCard, MessageCircle, Shield, ShieldCheck, MessageSquare, PenTool, GraduationCap, Users, Newspaper, Award, LogOut, Lock, Globe, Trophy, Briefcase, Wallet as WalletIcon, ArrowLeft, Brain } from 'lucide-react';
+import { Bell, BookOpen, Home, User, Menu, X, ShoppingBag, ShoppingCart, CreditCard, MessageCircle, Shield, ShieldCheck, MessageSquare, PenTool, GraduationCap, Users, Newspaper, Award, LogOut, Lock, Globe, Trophy, Briefcase, Wallet as WalletIcon, ArrowLeft, Brain, Video } from 'lucide-react';
 import { KharandiIcon, KharandiIconName } from '../icons/KharandiIcon';
 import { motion, AnimatePresence } from 'motion/react';
 import { Marketplace } from './Marketplace';
@@ -8,6 +8,7 @@ import { SellerDashboard } from './SellerDashboard';
 import { HomeContent } from './HomeContent';
 import { Library } from './Library';
 import { CoursesFeature } from './CoursesFeature';
+import { ZoomClasses } from './ZoomClasses';
 import { Notifications } from './Notifications';
 import { Profile } from './Profile';
 import { AITeacherChat } from './AITeacherChat';
@@ -37,6 +38,7 @@ const tabToPath: Record<string, string> = {
   'Accueil': '/',
   'Sujets et traités': '/biblio',
   'Cours': '/cours',
+  'Classes Zoom': '/zoom',
   'Exo Gagnant': '/exercices',
   'Mon Wallet': '/wallet',
   'Kharandi École': '/notes',
@@ -220,6 +222,8 @@ export const Dashboard: React.FC = () => {
     const freeFeatures = [
       'Accueil', 
       'Sujets et traités',
+      'Cours',
+      'Classes Zoom',
       'Kharandi Makiti', 
       'Abonnements', 
       'Dashboard utilisateur', 
@@ -276,6 +280,8 @@ export const Dashboard: React.FC = () => {
         return <Library initialSearchQuery={searchQuery} initialCourseId={selectedCourseId} onCourseClose={() => setSelectedCourseId(null)} onOpenKaramo={openKaramoWithContext} setActiveTab={setActiveTab} />;
       case 'Cours':
         return <CoursesFeature onOpenKaramo={openKaramoWithContext} setActiveTab={setActiveTab} />;
+      case 'Classes Zoom':
+        return <ZoomClasses setActiveTab={setActiveTab} />;
       case 'Exo Gagnant':
         return <Exercises />;
       case 'Mon Wallet':
@@ -321,6 +327,7 @@ export const Dashboard: React.FC = () => {
     { id: 'Accueil', icon: Home, kIcon: 'accueil' as KharandiIconName },
     { id: 'Sujets et traités', icon: BookOpen, kIcon: 'cours' as KharandiIconName, roles: ['student', 'eleve', 'parent', 'admin', 'teacher', 'repetiteur'] },
     { id: 'Cours', icon: GraduationCap, kIcon: 'cours' as KharandiIconName, roles: ['student', 'eleve', 'parent', 'admin', 'teacher', 'repetiteur'] },
+    { id: 'Classes Zoom', icon: Video, kIcon: 'zoom' as KharandiIconName, roles: ['student', 'eleve', 'parent', 'admin', 'teacher', 'repetiteur', 'tutor'] },
     { id: 'Calcul mental', icon: Brain, kIcon: 'abacus' as KharandiIconName, premium: true, roles: ['student', 'eleve', 'parent', 'admin', 'teacher', 'repetiteur'] },
     { id: 'Exo Gagnant', icon: PenTool, kIcon: 'exercices' as KharandiIconName, roles: ['student', 'eleve', 'admin'] },
     { id: 'Mon Wallet', icon: WalletIcon, kIcon: 'portefeuille' as KharandiIconName, roles: ['student', 'eleve', 'parent', 'admin', 'teacher', 'repetiteur', 'seller'] },

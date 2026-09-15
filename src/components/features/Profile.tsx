@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { ChevronRight, ChevronLeft, CreditCard, BookOpen, Bell, Shield, Headphones, Info, LogOut, CheckCircle2, ShieldAlert, User, Mail, Phone, MapPin } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CreditCard, BookOpen, Bell, Shield, Headphones, Info, LogOut, CheckCircle2, ShieldAlert, User, Mail, Phone, MapPin, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useAuth } from '../../contexts/AuthContext';
 import { updateProfile } from '../../services/auth';
+import { SubscriptionUsageAndBilling } from './SubscriptionUsageAndBilling';
 
 export const Profile: React.FC = () => {
   const [activeView, setActiveView] = useState<string | null>(null);
@@ -47,7 +48,8 @@ export const Profile: React.FC = () => {
 
   const menuItems = [
     { id: "personal", icon: User, label: "Informations personnelles", color: "text-primary", bg: "bg-primary/10" },
-    { id: "subscription", icon: CreditCard, label: "Mon abonnement", color: "text-primary", bg: "bg-primary/10" },
+    { id: "subscription", icon: CreditCard, label: "Mon abonnement & Consommation", color: "text-[#18bfd6]", bg: "bg-cyan-50" },
+    { id: "billing", icon: FileText, label: "Factures & Téléchargement", color: "text-emerald-600", bg: "bg-emerald-50" },
     { id: "history", icon: BookOpen, label: "Mes lectures récentes", color: "text-accent", bg: "bg-accent/10" },
     { id: "notifications", icon: Bell, label: "Notifications", color: "text-secondary", bg: "bg-secondary/20" },
     { id: "security", icon: Shield, label: "Sécurité & Appareils", color: "text-gray-600", bg: "bg-gray-100" },
@@ -189,74 +191,33 @@ export const Profile: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            className="p-6 md:p-0 bg-gray-50 min-h-screen md:min-h-0 md:bg-transparent"
+            className="p-4 md:p-0 bg-gray-50 min-h-screen md:min-h-0 md:bg-transparent"
           >
-            <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold mb-6 hover:opacity-80 transition-opacity lg:hidden">
-              <ChevronLeft size={20} /> Retour
-            </button>
-            <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight mb-6 hidden lg:block">Mon abonnement</h2>
-            <div className="max-w-2xl bg-white p-8 rounded-[32px] shadow-sm border border-slate-100 relative overflow-hidden">
-              {/* Elegant ambient light flare in background */}
-              <div className="absolute -top-12 -right-12 w-48 h-48 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
-              
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 relative z-10 border-b border-slate-50 pb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center text-primary border border-primary/10 shadow-sm shrink-0">
-                    <CreditCard size={26} strokeWidth={2.2} />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">Forfait Actuel</span>
-                    <h3 className="font-black text-xl text-slate-900 mt-0.5 leading-tight">
-                      {userProfile?.subscriptionPlan === 'free' || !userProfile?.subscriptionPlan 
-                        ? 'Formule Découverte' 
-                        : `Offre ${userProfile.subscriptionPlan}`}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="self-start sm:self-center">
-                </div>
-              </div>
-
-              <div className="space-y-3.5 relative z-10">
-                <div className="flex items-center justify-between py-1 text-sm">
-                  <span className="font-bold text-slate-400">Type de licence</span>
-                  <span className="font-black text-slate-800 bg-slate-100 px-3 py-1 rounded-xl text-xs uppercase tracking-wider">Gratuit & Permanent</span>
-                </div>
-                <div className="flex items-center justify-between py-1 text-sm">
-                  <span className="font-bold text-slate-400">Services inclus</span>
-                  <span className="font-black text-slate-700 text-xs">
-                    Actualités, Résultats & Guides scolaires 
-                  </span>
-                </div>
-                <div className="flex items-center justify-between py-1 text-sm">
-                  <span className="font-bold text-slate-400">Sécurité plateforme</span>
-                  <span className="font-black text-emerald-600 flex items-center gap-1 text-xs">
-                    <CheckCircle2 size={14} /> Sécurisé par SSL
-                  </span>
-                </div>
-              </div>
-
-              {userProfile?.activeAddons && userProfile.activeAddons.length > 0 && (
-                <div className="mt-8 pt-6 border-t border-slate-100 relative z-10">
-                  <h4 className="text-xs font-black text-slate-400 mb-4 uppercase tracking-wider">Options Premium Activées</h4>
-                  <div className="space-y-2">
-                    {userProfile.activeAddons.includes('student_access') && (
-                      <div className="bg-emerald-50 text-emerald-700 px-4 py-3 rounded-xl border border-emerald-100 flex items-center gap-2">
-                        <CheckCircle2 size={16} />
-                        <span className="font-bold text-sm">Forfait Élève / Parent débloqué</span>
-                      </div>
-                    )}
-                    {(userProfile.activeAddons.includes('ad_boost') || userProfile.activeAddons.includes('product_boost')) && (
-                      <div className="bg-emerald-50 text-emerald-700 px-4 py-3 rounded-xl border border-emerald-100 flex items-center gap-2">
-                        <CheckCircle2 size={16} />
-                        <span className="font-bold text-sm">Mise en avant activée</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
+            <div className="flex items-center justify-between mb-6">
+              <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold hover:opacity-80 transition-opacity lg:hidden">
+                <ChevronLeft size={20} /> Retour
+              </button>
+              <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight hidden lg:block">Mon abonnement & Consommation</h2>
             </div>
+            <SubscriptionUsageAndBilling initialTab="usage" />
+          </motion.div>
+        );
+      case 'billing':
+        return (
+          <motion.div 
+            key="billing"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="p-4 md:p-0 bg-gray-50 min-h-screen md:min-h-0 md:bg-transparent"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold hover:opacity-80 transition-opacity lg:hidden">
+                <ChevronLeft size={20} /> Retour
+              </button>
+              <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight hidden lg:block">Facturation & Téléchargement</h2>
+            </div>
+            <SubscriptionUsageAndBilling initialTab="invoices" />
           </motion.div>
         );
       case 'history':

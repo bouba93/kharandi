@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { 
   CheckCircle2, 
@@ -22,6 +23,7 @@ import { getPlans, getSubscriptionStatus, initiateSubscription } from '../../ser
 type TabType = 'STUDENT' | 'PALMARES' | 'TUTOR' | 'SELLER';
 
 export const Subscription: React.FC = () => {
+  const navigate = useNavigate();
   const { userProfile } = useAuth();
   const [plans, setPlans] = useState<any[]>([]);
   const [subscriptionStatus, setSubscriptionStatus] = useState<any>(null);
@@ -183,7 +185,7 @@ export const Subscription: React.FC = () => {
       <div className="flex flex-wrap justify-center gap-2 md:gap-3 bg-slate-100 p-2 rounded-[24px] mb-10 max-w-4xl mx-auto border border-slate-200/50 shadow-inner">
         {[
           { id: 'STUDENT', label: 'Espace Élève', icon: GraduationCap, color: 'hover:text-primary' },
-          { id: 'PALMARES', label: 'Pass Palmarès (250K)', icon: Trophy, color: 'hover:text-amber-600' },
+          { id: 'PALMARES', label: 'Forfait Palmarès (250K)', icon: Trophy, color: 'hover:text-amber-600' },
           { id: 'TUTOR', label: 'Répétiteurs', icon: UserCheck, color: 'hover:text-secondary' },
           { id: 'SELLER', label: 'Vendeur (Boutique)', icon: Store, color: 'hover:text-accent' },
         ].map(tab => {
@@ -292,11 +294,11 @@ export const Subscription: React.FC = () => {
             <div className="md:col-span-7 space-y-6">
               <div>
                 <span className="bg-amber-100 text-amber-800 font-extrabold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider border border-amber-200">
-                  Pass Exclusif Annuel
+                  Offre Annuelle
                 </span>
-                <h2 className="text-3xl font-black text-slate-900 mt-2">Pass Palmarès National des Écoles</h2>
+                <h2 className="text-3xl font-black text-slate-900 mt-2">Palmarès National des Écoles</h2>
                 <p className="text-slate-500 mt-2 font-medium">
-                  Accès privilégié et illimité au classement officiel des établissements scolaires guinéens (écoles primaires, collèges et lycées, publics et privés), rapports d'audit détaillés et statistiques de performance.
+                  Accès complet au classement officiel des établissements scolaires guinéens (écoles primaires, collèges et lycées, publics et privés), rapports d'audit détaillés et statistiques de performance.
                 </p>
               </div>
 
@@ -339,7 +341,7 @@ export const Subscription: React.FC = () => {
                   <span className="text-slate-400 font-extrabold text-xs ml-1">/ an</span>
                 </div>
                 <p className="text-xs font-bold text-amber-800 bg-amber-100/80 inline-block px-2.5 py-1 rounded-lg mt-2 border border-amber-200">
-                  Accès illimité 365 jours
+                  Accès complet 365 jours
                 </p>
               </div>
 

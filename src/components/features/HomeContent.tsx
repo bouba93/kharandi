@@ -23,7 +23,8 @@ import {
   Package,
   FileText,
   UserCheck,
-  Newspaper
+  Newspaper,
+  Video
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { HomeSkeleton } from '../ui/Skeleton';
@@ -129,6 +130,7 @@ export const HomeContent: React.FC<{
         { label: "Niveau", val: "Actif", icon: TrendingUp, color: "text-emerald-300" }
       ],
       quickAccess: [
+        { title: "Classes Zoom en direct", subtitle: "Cours virtuels & révisions en visio", icon: Video, kIcon: "zoom" as KharandiIconName, tab: "Classes Zoom", color: "bg-[#0B5CFF]" },
         { title: "Sujets & Traités", subtitle: "CEE, BEPC, BAC corrigés", icon: Award, kIcon: "examen" as KharandiIconName, tab: "Sujets et traités", color: "bg-blue-600" },
         { title: "Calcul mental — Abacus", subtitle: "Boulier Soroban & Anzan flash", icon: Brain, kIcon: "abacus" as KharandiIconName, tab: "Calcul mental", color: "bg-cyan-500" },
         { title: "Bourses d'études", subtitle: "Opportunités nationales et internationales", icon: Briefcase, kIcon: "bourse" as KharandiIconName, tab: "Bourses", color: "bg-indigo-600" },
@@ -153,6 +155,7 @@ export const HomeContent: React.FC<{
         { label: "Revenus réels", val: `${tutorStats.earnings.toLocaleString()} GNF`, icon: DollarSign, color: "text-teal-300" }
       ],
       quickAccess: [
+        { title: "Classes Zoom en direct", subtitle: "Animer un cours ou soutien à distance", icon: Video, kIcon: "zoom" as KharandiIconName, tab: "Classes Zoom", color: "bg-[#0B5CFF]" },
         { title: "Séances & Déclarations", subtitle: "Saisir un cours à domicile", icon: Users, kIcon: "eleve" as KharandiIconName, tab: "Répétiteurs", color: "bg-emerald-600" },
         { title: "Mon Annonce Publique", subtitle: "Visibilité dans l'annuaire de soutien", icon: BookOpen, kIcon: "bibliotheque" as KharandiIconName, tab: "Répétiteurs", color: "bg-teal-600" },
         { title: "Statut KYC & Identité", subtitle: "Contrôle des pièces justificatives", icon: UserCheck, kIcon: "aide" as KharandiIconName, tab: "Répétiteurs", color: "bg-cyan-600" },
@@ -175,6 +178,7 @@ export const HomeContent: React.FC<{
         { label: "Revenus réels", val: `${tutorStats.earnings.toLocaleString()} GNF`, icon: DollarSign, color: "text-teal-300" }
       ],
       quickAccess: [
+        { title: "Classes Zoom en direct", subtitle: "Animer un cours ou soutien à distance", icon: Video, kIcon: "zoom" as KharandiIconName, tab: "Classes Zoom", color: "bg-[#0B5CFF]" },
         { title: "Séances & Déclarations", subtitle: "Saisir un cours à domicile", icon: Users, kIcon: "eleve" as KharandiIconName, tab: "Répétiteurs", color: "bg-emerald-600" },
         { title: "Mon Annonce Publique", subtitle: "Visibilité dans l'annuaire de soutien", icon: BookOpen, kIcon: "bibliotheque" as KharandiIconName, tab: "Répétiteurs", color: "bg-teal-600" },
         { title: "Statut KYC & Identité", subtitle: "Contrôle des pièces justificatives", icon: UserCheck, kIcon: "aide" as KharandiIconName, tab: "Répétiteurs", color: "bg-cyan-600" },

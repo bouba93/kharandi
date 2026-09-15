@@ -10,6 +10,7 @@ import {
   CircleUserRound,
   Settings,
   CircleHelp,
+  Video,
   BookOpen,
   Library,
   NotebookTabs,
@@ -112,6 +113,7 @@ export const kharandiIcons = {
   calendrier_scolaire: CalendarDays,
   langue: Languages,
   telechargement: Download,
+  zoom: Video,
 
   // École
   ecole: School,

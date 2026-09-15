@@ -18,8 +18,8 @@ export interface FallbackSubject {
 const BASE_FALLBACK_SUBJECTS: FallbackSubject[] = [
   {
     id: "cours-histoire-terminale-tss-mao",
-    title: "Cours Complet d’Histoire — Terminale TSS (Mr. MAO / GS CAMESS)",
-    description: "Cours officiel et complet d'Histoire pour les Terminales TSS rédigé par Mr. MAO au GS CAMESS. Couvre les crises des années 30, la Seconde Guerre mondiale, l'ONU, la décolonisation et les civilisations contemporaines.",
+    title: "Cours Complet & Sujets Traités d’Histoire — Terminale TSS (Mr. MAO / GS CAMESS)",
+    description: "Le traité officiel et intégral d'Histoire pour les Terminales TSS rédigé par Mr. MAO (GS CAMESS). Couvre tout le programme officiel (Crises des années 30, Seconde Guerre mondiale, ONU, Décolonisation, Civilisations) ainsi que les 23 Sujets Traités du BAC (2003-2020).",
     doc_type: "COURS",
     category: "REAL",
     subject: { id: 8, name: "Histoire", icon: "Globe" },
@@ -27,13 +27,16 @@ const BASE_FALLBACK_SUBJECTS: FallbackSubject[] = [
     is_free: true,
     year: "2021",
     country: "Guinée",
-    institution: "GS CAMESS — Mr. MAO",
-    content: `# COURS ET TRAITÉ D'HISTOIRE — TERMINALE TSS
+    institution: "GS CAMESS — Mr. MAO (Contacts: 622 38 66 40 / 69)",
+    content: `# COURS ET TRAITÉS D'HISTOIRE — TERMINALE TSS
 **Auteur : Mr. MAO | Établissement : GS CAMESS (Contacts : 622 38 66 40 / 69)**
+**Producteur et distributeur : ouo-ouo Jacob Dopavogui (OJD) — 621 18 43 59**
 
 ---
 
-## PROGRAMME OFFICIEL D'HISTOIRE (TERMINALE TSS)
+## SOMMAIRE GÉNÉRAL DU PROGRAMME
+
+### CHAPITRE I : DES CRISES DES ANNÉES « 30 » À LA SECONDE GUERRE MONDIALE (1939 - 1945)
 1. Les crises des années « 30 » dans le monde.
 2. La seconde guerre mondiale de 1939-1945.
 3. La participation africaine et malgache à la seconde guerre mondiale de 1939-1945.
@@ -41,17 +44,20 @@ const BASE_FALLBACK_SUBJECTS: FallbackSubject[] = [
 5. Les conférences préparatoires de la réorganisation du monde.
 6. La création de l’ONU en 1945.
 7. Les tensions idéologiques entre l’Est et l’Ouest de 1947 à 1991.
-8. La décolonisation.
-9. Les luttes de libération nationale en Asie et en Afrique.
-10. La lutte pacifique de libération nationale.
-11. La lutte armée de libération nationale.
-12. L’Union Africaine.
-13. La notion de civilisation (civilisation au singulier et civilisation au pluriel).
-14. La crise « âge-retraité » d’une civilisation.
-15. La Diaspora noire.
-16. Le Sionisme au Proche-Orient.
-17. L’Apartheid en Azanie (actuelle Afrique du Sud).
-18. Le Nouvel Ordre Mondial de la Culture, de l’Information et de la Communication.
+
+### CHAPITRE II : LA DÉCOLONISATION DE L'ASIE, DE L'AFRIQUE ET L'AFFIRMATION DU TIERS-MONDE
+1. La décolonisation (Définition et facteurs).
+2. Les luttes de libération nationale en Asie et en Afrique (Pacifique et Armée).
+3. Processus de décolonisation de quelques pays (Indochine, Inde, Algérie, Gold Coast / Ghana, Guinée française).
+4. L'Union Africaine (de l'OUA à l'UA).
+
+### CHAPITRE III : CIVILISATIONS ET PROBLÈMES DU MONDE CONTEMPORAIN
+1. La notion de civilisation (au singulier et au pluriel).
+2. La crise « âge-retraité » d’une civilisation.
+3. La Diaspora noire.
+4. Le Sionisme au Proche-Orient.
+5. L’Apartheid en Azanie (actuelle Afrique du Sud).
+6. Le Nouvel Ordre Mondial de la Culture, de l’Information et de la Communication.
 
 ---
 
@@ -59,31 +65,31 @@ const BASE_FALLBACK_SUBJECTS: FallbackSubject[] = [
 1. « Histoire de l'Afrique Noire, d'Hier à Demain » de Joseph KI-ZERBO, Hatier 1968.
 2. « Le portrait du colonisé » (Albert MEMMI).
 3. « Le portrait du colonisateur » (Albert MEMMI).
-4. « Histoire (de la fin du XIXe siècle au lendemain de la seconde guerre mondiale) », Collection Berstin MILIA 1988.
+4. « Histoire 1ère (de la fin du XIXe siècle au lendemain de la seconde guerre mondiale) », Collection Berstin MILIA 1988.
 5. « Histoire Terminale (de 1945 à nos jours) », Collection GREH, Hachette-Lycée, 1989.
-6. « Décolonisation et problèmes de l'Afrique indépendante », 38e édition, Hatier, 1989.
+6. « Décolonisation et problèmes de l'Afrique indépendante », 3e édition, Hatier, 1989.
 7. « Histoire Terminale » de Jacques MARSEILLE, Nathan, 1991.
 
 ---
 
-## CHAPITRE I — DES CRISES DES ANNÉES « 30 » À LA SECONDE GUERRE MONDIALE (1939 - 1945)
+# CHAPITRE I — DES CRISES DES ANNÉES « 30 » À LA SECONDE GUERRE MONDIALE (1939 - 1945)
 
 ### Introduction
 La seconde guerre mondiale, à l'image de la première, résulta d'un jeu très complexe de rivalités constantes entre les puissances impérialistes européennes. Elle fut également la suite logique d'une longue série de crises de toute nature ayant secoué le monde au cours des années « 30 ».
 
 ### 1. Les crises des années « 30 » dans le monde
 * **a) Définition :** Les crises des années « 30 » dans le monde désignent l'ensemble des évènements malheureux engendrant des déséquilibres d'ordre économique, politique, social, diplomatique et militaire survenus entre 1929 et 1939, débouchant sur la seconde guerre mondiale.
-* **b) Causes principales :**
+* **b) Les causes des crises :**
   - **Les conséquences de la première guerre mondiale (1914-1918) :** Difficultés économiques mondiales, Europe ruinée contrainte de solliciter les capitaux des U.S.A., et rigueur des dispositions du Traité de Versailles contre les vaincus.
   - **La crise économique de 1929 :** Survenue le jeudi 24 octobre 1929 à la bourse de Wall Street (New York, USA). Par son ampleur et ses effets sociaux et politiques, elle ébranla les régimes parlementaires européens et favorisa la montée des dictateurs (Benito Mussolini avec le Fascisme en Italie dès 1922, Adolf Hitler en Allemagne en 1933 grâce au Nazisme).
-* **c) Catégories de crises :**
+* **c) Les différentes types de crises :**
   - **Les petites crises (1931 - 1936) à caractère politico-diplomatique :**
     * L'invasion de la Mandchourie (Chine) par le Japon en 1931.
     * La fin des réparations allemandes en 1932.
     * L'échec de la conférence du désarmement et du projet de fédération européenne en 1932.
     * L'arrivée au pouvoir d'Adolf Hitler en Allemagne en 1933.
     * Le déclin de la SDN (1933-1936) face aux Puissances de l'Axe (Allemagne-Italie-Japon).
-  - **Les grandes crises (1936 - 1939) à caractère militaire :**
+  - **Les grandes crises (1936 - 1939) à caractère militaire (coups de force) :**
     * L'annexion de l'Éthiopie par l'Italie fasciste en 1936.
     * La remilitarisation de la Rhénanie en 1936.
     * La guerre civile espagnole (1936-1939) avec le triomphe du Général Franco soutenu par Mussolini et Hitler.
@@ -92,14 +98,16 @@ La seconde guerre mondiale, à l'image de la première, résulta d'un jeu très 
 
 ### 2. La Seconde Guerre mondiale (1939 - 1945)
 * **Introduction :** Vingt ans après la première, elle éclata le 1er septembre 1939 par l'invasion de la Pologne par l'Allemagne nazie et prit fin le 2 septembre 1945 par la capitulation officielle du Japon.
-* **A. Causes :** Effets de la 1ère GM, rivalités impérialistes (France/Angleterre vs Allemagne/Italie), attitude belliqueuse des deux blocs rivaux, et crises de 1929-1939.
-* **B. Principales étapes :**
+* **A. Les causes :** Effets de la 1ère GM, rivalités impérialistes (France/Angleterre vs Allemagne/Italie), attitude belliqueuse des deux blocs rivaux, et crises de 1929-1939.
+* **B. Les principales étapes :**
   - **1) Offensive victorieuse de l'Axe (1939-1941) :** Annexion de la Pologne, occupation de l'Europe du Nord (1940), chute de Paris en juin 1940 (gouvernement de Vichy avec le Maréchal Pétain), résistance anglaise, violation du pacte germano-soviétique (21 juin 1941), et attaque de Pearl Harbor par le Japon (7 décembre 1941).
-  - **2) Tournant de la guerre (1941-1942) :** Entrée en guerre officielle de l'URSS et des USA aux côtés des Alliés.
-  - **3) Victoires des Alliés (1942-1945) :** Batailles du Pacifique (Midway, mer du Corail), débarquement en Méditerranée (Opération Torch), bataille de Stalingrad (1943), libération de la France (Normandie le 6 juin 1944, Provence le 15 août 1944), suicide d'Hitler (30 avril 1945), capitulation allemande (8 mai 1945), et bombardements atomiques d'Hiroshima (6 août) et Nagasaki (9 août 1945) par Harry Truman menant à la capitulation du Japon le 2 septembre 1945.
+  - **2) Le tournant de la guerre (1941-1942) :** Entrée en guerre officielle de l'URSS et des USA aux côtés des Alliés.
+  - **3) Les victoires des Alliés (1942-1945) :** Batailles du Pacifique (Midway, mer du Corail), débarquement en Méditerranée (Opération Torch), bataille de Stalingrad (1943), libération de la France (Normandie le 6 juin 1944, Provence le 15 août 1944), suicide d'Hitler (30 avril 1945), capitulation allemande (8 mai 1945), et bombardements atomiques d'Hiroshima (6 août) et Nagasaki (9 août 1945) par Harry Truman menant à la capitulation du Japon le 2 septembre 1945.
 
 ### 3. La participation africaine et malgache à la Seconde Guerre mondiale
-* **a) Participation humaine :** Mobilisation massive (ex: 130 000 soldats de l'AOF en 1939, 127 320 en 1940, 34 000 malgaches). En 1942-1945, les soldats africains représentaient 9% des troupes françaises sur les fronts les plus meurtriers.
+* **a) Participation humaine :** Mobilisation massive en deux périodes :
+  - *1939-1940 :* 130 000 soldats de l'AOF en 1939, 127 320 en 1940, 15 500 de l'AEF et 34 000 malgaches.
+  - *1942-1945 :* Les soldats africains constituaient 9% des troupes françaises sur les fronts les plus meurtriers.
 * **b) Participation économique :** Fourniture obligatoire de produits agricoles (céréales, bétail) et souscriptions financières sous le vocable « effort de guerre ».
 * **c) Participation territoriale :** Combats en Afrique du Nord-Est (libération de l'Éthiopie) et bases arrière stratégiques (Kayes au Mali, Algérie, Sierra Leone).
 
@@ -110,37 +118,49 @@ La seconde guerre mondiale, à l'image de la première, résulta d'un jeu très 
 * **d) Politiques et diplomatiques :** Émergence de deux supergrands (USA et URSS) et début de la guerre froide, création de l'ONU, et éveil de la conscience nationaliste en Asie et en Afrique.
 
 ### 5. Les conférences préparatoires de la réorganisation du monde
-* Conférence de l'Atlantique (août 1941)
-* Conférence de Washington (1er janvier 1942 — Déclaration des Nations Unies)
-* Conférence de Moscou (octobre 1943)
-* Conférence de Téhéran (novembre-décembre 1943)
-* Conférence de Dumbarton Oaks (septembre 1944 — structures de l'ONU)
-* Conférence de Yalta (février 1945 — capitulation allemande et droit de véto)
-* 1ère Conférence de San Francisco (avril-juin 1945 — signature de la charte)
-* Conférence de Potsdam (juillet-août 1945 — sort de l'Allemagne)
-* 2ème Conférence de San Francisco (24 octobre 1945 — naissance officielle de l'ONU avec 51 États).
+* **Conférence de l'Atlantique** (9 au 14 août 1941) : Churchill et Roosevelt, droit des peuples à disposer d'eux-mêmes.
+* **Conférence de Washington** (1er janvier 1942) : Déclaration des Nations Unies.
+* **Conférence de Moscou** (octobre 1943) : Organisation internationale pour la paix.
+* **Conférence de Téhéran** (novembre-décembre 1943) : Staline, Roosevelt et Churchill décident de l'ouverture du deuxième front à l'Ouest.
+* **Conférence de Dumbarton Oaks** (21-28 septembre 1944) : Structures de l'ONU.
+* **Conférence de Yalta** (4-11 février 1945) : Capitulation allemande et droit de véto.
+* **1ère Conférence de San Francisco** (24 avril - 26 juin 1945) : Signature de la charte de l'ONU.
+* **Conférence de Potsdam** (juillet-août 1945) : Sort de l'Allemagne (divisée en 4 zones d'occupation).
+* **2ème Conférence de San Francisco** (24 octobre 1945) : Naissance officielle de l'ONU avec 51 États.
 
 ### 6. La création de l'ONU en 1945
-* **Organes principaux :**
+* **Les organes principaux :**
   1. *L'Assemblée Générale :* Organe suprême, vote le budget (51 États fondateurs, 194 aujourd'hui).
   2. *Le Conseil de Sécurité :* 15 membres dont 5 permanents (USA, Russie, Royaume-Uni, France, Chine) avec droit de véto.
-  3. *Le Secrétariat Général :* Coordonne les activités. Secrétaires généraux successifs : Trygve Lie (Norvège), Dag Hammarskjöld (Suède), U Thant (Birmanie), Kurt Waldheim (Autriche), Javier Pérez de Cuéllar (Pérou), Boutros Boutros-Ghali (Égypte), Kofi Annan (Ghana), Ban Ki-moon (Corée du Sud), António Guterres (Portugal).
+  3. *Le Secrétariat Général :* Coordonne les activités.
+* **Tableau des Secrétaires Généraux de l'ONU :**
+  | N° | Prénoms et Nom | Pays d'origine | Durée de mandat |
+  |---|---|---|---|
+  | 1 | Trygve LIE | Norvège | 1946 - 1952 |
+  | 2 | Dag HAMMARSKJÖLD | Suède | 1953 - 1961 |
+  | 3 | U THANT | Birmanie | 1961 - 1971 |
+  | 4 | Kurt WALDHEIM | Autriche | 1971 - 1981 |
+  | 5 | Javier PÉREZ DE CUELLAR | Pérou | 1981 - 1991 |
+  | 6 | Boutros BOUTROS-GHALI | Égypte | 1991 - 1996 |
+  | 7 | Kofi Atta ANNAN | Ghana | 1996 - 2007 |
+  | 8 | Ban KI-MOON | Corée du Sud | 2007 - 2017 |
+  | 9 | António GUTERRES | Portugal | Janvier 2017 à nos jours |
+
   4. *Le Conseil Économique et Social :* Coordonne les institutions spécialisées (UNICEF, UNESCO, OMS, FMI, FAO, etc.).
-  5. *La Cour Internationale de Justice :* Basée à La Haye (Pays-Bas).
-  6. *Le Conseil de Tutelle.*
-* **Objectifs et principes :** Préserver les générations futures de la guerre, maintenir la paix, favoriser le progrès social, égalité souveraine des États, non-ingérence et règlement pacifique des différends.
+  5. *La Cour Internationale de Justice :* Basée à La Haye (Pays-Bas), 15 magistrats élus pour 9 ans.
+  6. *Le Conseil de Tutelle :* (a cessé d'exister après les années 90).
 
 ### 7. Les tensions idéologiques entre l'Est et l'Ouest (1947 - 1991)
-* **Origines :** Révolution bolchévique de 1917, opposition capitalisme (USA) vs socialisme (URSS).
-* **Causes :** Doctrine Truman (endiguer le communisme, 1947), Kominform, Plan Marshall (1947), blocus de Berlin, guerre de Corée (1950-1953), crise des missiles à Cuba (1962), création de la CIA et du KGB.
-* **Détente et coexistence pacifique :** Décès de Staline (1953), accords de Genève (1955), téléphone rouge (1963), traités de non-prolifération.
+* **Origines et causes :** Révolution bolchévique de 1917, opposition capitalisme (USA) vs socialisme (URSS). Doctrine Truman (1947), Kominform, Plan Marshall (1947).
+* **Foyers de tension :** Blocus de Berlin (1948-1949), guerre de Corée (1950-1953), crise des missiles à Cuba (1962).
+* **La détente et la coexistence pacifique :** Décès de Staline (1953), accords de Genève (1955), téléphone rouge (1963).
 * **Fin de la guerre froide :** Rencontres Reagan - Gorbatchev, chute du mur de Berlin (11 novembre 1989), et éclatement de l'URSS le 8 décembre 1991.
 
 ---
 
-## CHAPITRE II — LA DÉCOLONISATION DE L'ASIE, DE L'AFRIQUE ET L'AFFIRMATION DU TIERS-MONDE
+# CHAPITRE II — LA DÉCOLONISATION DE L'ASIE, DE L'AFRIQUE ET L'AFFIRMATION DU TIERS-MONDE
 
-### 1. La décolonisation
+### 1. La décolonisation et ses facteurs
 * **Définition :** Ensemble des luttes pacifiques et violentes menées par les peuples colonisés pour recouvrer leur souveraineté.
 * **Facteurs internes :** Abus de l'administration coloniale (travail forcé, impôts, ségrégation), et formation de l'élite locale.
 * **Facteurs externes :** Impact de la Seconde Guerre mondiale (démystification de l'homme blanc), action anticolonialiste des USA et de l'URSS, rôle de l'ONU et des Églises.
@@ -153,20 +173,21 @@ La seconde guerre mondiale, à l'image de la première, résulta d'un jeu très 
 * **Indochine :** Infiltration japonaise, création du Việt Minh par Ho Chi Minh et le Général Vo Nguyen Giap. Insurrection d'août 1945, défaite française à Diên Biên Phu (1954), accords de Genève.
 * **Inde :** Colonie britannique, création du Parti du Congrès (1885). Mahatma Gandhi et la désobéissance civile non-violente (Swaraj). Indépendance et partition en 1947 (Inde et Pakistan, puis Bangladesh en 1971).
 * **Algérie :** Colonie de peuplement depuis 1830. Création du FLN et insurrection armée du 1er novembre 1954. Accords d'Évian et indépendance le 5 juillet 1962 (Ahmed Ben Bella premier président).
-* **Gold Coast (Ghana) :** Kwame Nkrumah et le CPP. Indépendance le 6 mars 1957 (premier pays d'Afrique noire).
-* **Guinée française :** Associations régionales, création du PDG-RDA (section du RDA). Rôle décisif d'Ahmed Sékou Touré et du syndicalisme (grève de 1953, loi-cadre de 1956). Référendum du 28 septembre 1958 (« NON » massif à la communauté franco-africaine) et proclamation de l'indépendance le 2 octobre 1958 (Résultat : 1 136 234 « NON », soit 95%).
+* **Gold Coast (Ghana) :** Kwame Nkrumah et le CPP (Convention People Party). Indépendance le 6 mars 1957 (premier pays d'Afrique noire).
+* **Guinée française :** Associations régionales (Amical Gilbert Vieillard, Union du Mandingue, etc.), création du PDG-RDA. Rôle décisif d'Ahmed Sékou Touré et du syndicalisme (UGTAN). Référendum du 28 septembre 1958 (« NON » massif à la communauté franco-africaine : 1 136 234 « NON », soit 95%) et proclamation de l'indépendance le 2 octobre 1958.
 
-### 4. L'Union Africaine
-* **De l'OUA à l'UA :** Création de l'OUA le 28 mai 1963 à Addis-Abeba. Remplacée par l'Union Africaine (UA) proclamée à Syrte en 1999 et officialisée à Durban en juillet 2002.
-* **Objectifs et organes :** Défense de la souveraineté, intégration socio-économique, Conférence des Chefs d'État, Conseil exécutif et Commission de l'UA (dirigée successivement par Amara Essy, Alpha Oumar Konaré, Jean Ping, Nkosazana Dlamini-Zuma et Moussa Faki Mahamat).
+### 4. L'Union Africaine (De l'OUA à l'UA)
+* **Création de l'OUA :** 28 mai 1963 à Addis-Abeba. Objectifs : renforcer l'unité, éliminer le colonialisme.
+* **Transition vers l'UA :** Proclamée à Syrte en 1999 par le Colonel Kadhafi et officialisée à Durban en juillet 2002.
+* **Organes principaux de l'UA :** La Conférence de l'UA, le Conseil exécutif et la Commission de l'UA.
 
 ---
 
-## CHAPITRE III — CIVILISATIONS ET PROBLÈMES DU MONDE CONTEMPORAIN
+# CHAPITRE III — CIVILISATIONS ET PROBLÈMES DU MONDE CONTEMPORAIN
 
 ### 1. La notion de civilisation
 * **Civilisation au singulier :** Conception européenne ancienne et ethnocentriste (Grecs qualifiant les autres de "barbares"). L'Europe se posait en unique modèle.
-* **Civilisation au pluriel :** Conception moderne et scientifique (depuis le XIXe siècle). Tout peuple est naturellement civilisé ; il existe des civilisations et non une seule civilisation.
+* **Civilisation au pluriel :** Conception moderne et scientifique (depuis le XIXe siècle). Tout peuple est naturellement civilisé ; il existe des civilisations et non une seule civilisation (Paul Valéry : *"Nous autres civilisations, nous savons maintenant que nous sommes mortelles"*).
 
 ### 2. La Diaspora noire
 * **Définition :** Ensemble de la communauté noire vivant hors d'Afrique de gré ou de force.
@@ -175,7 +196,7 @@ La seconde guerre mondiale, à l'image de la première, résulta d'un jeu très 
 
 ### 3. Le Sionisme au Proche-Orient
 * **Présentation :** Carrefour géostratégique (Europe-Asie-Afrique), riche en hydrocarbures et berceau des trois religions monothéistes.
-* **Définition du Sionisme :** Doctrine politico-religieuse née à Bâle en 1896 (Léo Pinsker, Théodore Herzl) préconisant le retour des Juifs en Terre promise (Palestine).
+* **Définition du Sionisme :** Doctrine politico-religieuse née à Bâle en 1896 (Théodore Herzl) préconisant le retour des Juifs en Terre promise (Palestine).
 * **Évolution :** Déclaration Balfour (1917), plan de partage de l'ONU en 1947, proclamation de l'État d'Israël le 14 mai 1948, et guerres israélo-palestiniennes successives (1948, Suez 1956, guerre des Six Jours 1967, Kippour 1973).
 
 ### 4. L'Apartheid en Azanie (Afrique du Sud)
@@ -186,8 +207,107 @@ La seconde guerre mondiale, à l'image de la première, résulta d'un jeu très 
 ### 5. Le Nouvel Ordre Mondial de la Culture, de l'Information et de la Communication
 * **Problématique :** Déséquilibre entre le Nord (suréquipé, surinformé) et le Sud (sous-équipé, souvent caricaturé ou sous-informé).
 * **Objectifs :** Établir un partenariat équitable dans les flux d'information (création de la PANA), valoriser les cultures du Sud et démocratiser les technologies de la communication.
-`
-  },
+
+---
+
+# SECTION SPÉCIALE : LES 23 SUJETS TRAITÉS DU BAC (2003 - 2020)
+
+### Sujet N°1 (BAC 2003) : Le Proche-Orient
+* **Question :** Carrefour de peuples et de religions, point de passage stratégique, le Proche-Orient est depuis 1945 une zone d'instabilité et d'affrontements : a) Présentez la zone. b) Rédigez un texte évoquant : d'abord sa décolonisation, ensuite le sionisme, et enfin l'antagonisme israélo-arabe et le problème palestinien.
+* **Traité :** Le Proche-Orient regroupe l'ensemble des pays riverains de la Méditerranée orientale (Syrie, Liban, Israël, Égypte, Irak, etc.). Berceau des trois religions monothéistes et zone riche en pétrole, c'est un enjeu géostratégique majeur. Sa décolonisation s'est heurtée au mandat franco-britannique et aux traités de paix (Sèvres, San Remo). Le sionisme, né à Bâle en 1896 avec Théodore Herzl, a conduit à la création d'Israël en 1948, entraînant 4 guerres majeures (1948, 1956, 1967, 1973) et le douloureux problème palestinien.
+
+### Sujet N°2 (BAC 2004) : La notion de Tiers-Monde
+* **Question :** Après avoir fait l'historique de la notion du tiers-monde dégagez de façon explicite les causes et les caractères de la décolonisation.
+* **Traité :** Expression forgée en 1955 par l'économiste et démographe français Alfred Sauvy par analogie au Tiers-État de la Révolution française. Le Tiers-Monde désigne l'ensemble des pays sous-développés n'appartenant ni au bloc capitaliste ni au bloc socialiste. La décolonisation fut un mouvement pacifique et violent favorisé par les facteurs internes (abus de la colonisation, élite locale) et externes (choc de la seconde guerre mondiale, ONU, USA/URSS).
+
+### Sujet N°3 (BAC 2006) : Causes et conséquences de la Seconde Guerre mondiale
+* **Question :** Après avoir expliqué les principales crises ayant conduit à la seconde guerre mondiale, dégagez les conséquences ainsi que la contribution africaine et malgache à ce conflit.
+* **Traité :** La guerre fut précédée par l'invasion de la Mandchourie (1931), l'arrivée d'Hitler (1933), l'annexion de l'Éthiopie (1936) et la crise polonaise (1939). Ses conséquences furent dramatiques (50 à 60 millions de morts, ruines économiques, choc moral, création de l'ONU). L'Afrique a contribué sur le plan humain (milliers de soldats sur les fronts), économique (effort de guerre, matières premières) et territorial (bases militaires stratégiques en Afrique du Nord et de l'Ouest).
+
+### Sujet N°4 (BAC 2007) : L'Apartheid en Afrique du Sud
+* **Question :** Montrez que la naissance du régime d'Apartheid en Afrique du Sud au XXème siècle n'est pas un fait du hasard et que la lutte menée par le peuple azanien contre ce régime est une lutte légitime.
+* **Traité :** L'Apartheid (séparation des races) institutionnalisé en 1948 par la minorité blanche en Azanie (Afrique du Sud) reposait sur le confinement des Noirs, les pass obligatoires et les lois ségrégatives. La lutte menée par l'ANC (Nelson Mandela, Oliver Tambo) sous forme pacifique (manifestations, grèves) puis armée (Umkhonto we Sizwe) a abouti à la libération de Mandela en 1990 et aux premières élections démocratiques et multiraciales de 1994.
+
+### Sujet N°5 (BAC 2009) : La notion de civilisation
+* **Question :** Dans l'analyse de la notion de civilisation, il y a deux conceptions qui s'affrontent : a) Quelles sont ces deux conceptions ? b) Après les avoir expliquées, justifiez votre choix de l'une ou de l'autre.
+* **Traité :** Les deux conceptions sont : 1) La civilisation au singulier (conception européenne ancienne et ethnocentriste considérant l'Europe comme le sommet unique). 2) La civilisation au pluriel (conception moderne et scientifique selon laquelle chaque peuple possède sa culture et sa civilisation dignes de respect). Le choix se porte sur la civilisation au pluriel, seule garante du respect mutuel entre les peuples.
+
+### Sujet N°6 (BAC 2010 et 2015) : Les bouleversements mondiaux (1945-1991) et l'Afrique
+* **Question :** Après avoir fait une analyse des bouleversements survenus dans le monde de 1945 à 1991, montrez à l'aide d'exemples précis leur influence sur l'évolution politique de l'Afrique.
+* **Traité :** De 1945 à 1991, le monde a connu la fin de la guerre, la création de l'ONU, la guerre froide, la décolonisation et l'éclatement de l'URSS. En Afrique, ces bouleversements ont favorisé la création du RDA (1946), l'instauration de la loi-cadre de 1956, les indépendances massives de 1960, la création de l'OUA en 1963 et la fin de l'Apartheid en 1994.
+
+### Sujet N°7 (BAC 2013) : Inévitabilité de la Seconde Guerre mondiale
+* **Question :** Les crises des années « 30 » montrent que la seconde guerre mondiale était inévitable. a) Etes-vous d'avis ? Si oui expliquez et si non démontrez. b) Retracez le déroulement de cette guerre. c) Qu'est-ce qui a été entrepris par la suite pour éviter au monde une nouvelle catastrophe ?
+* **Traité :** Oui, la guerre était inévitable en raison de la fragilité du Traité de Versailles, de la crise de 1929 et de la multiplication des coups de force de l'Axe (Mandchourie, Éthiopie, Espagne, Tchécoslovaquie). Le déroulement comprend l'offensive de l'Axe (1939-1941), le tournant de Stalingrad et Midway (1942-1943) et la victoire des Alliés (1944-1945). Pour éviter une nouvelle catastrophe, les Alliés ont créé l'ONU en 1945.
+
+### Sujet N°8 (BAC 2014) : Analyse de texte sur Winston Churchill
+* **Question :** Analyse d'un extrait de lettre de Winston Churchill (14 mai 1945) concernant la menace soviétique et la division des vainqueurs. a) Biographie de l'auteur. b) Contexte historique. c) Causes des rapports conflictuels entre les vainqueurs.
+* **Traité :** Churchill (1874-1965), Premier ministre britannique. Contexte : fin de la Seconde Guerre mondiale en Europe et prémices de la guerre froide. Causes : opposition idéologique (capitalisme vs communisme), refus de l'URSS d'appliquer l'autodétermination en Europe de l'Est, doctrine Truman, plan Marshall et division du monde en deux blocs.
+
+### Sujet N°9 (BAC 2015) : Analyse de texte sur Ahmed Sékou Touré et la Guinée
+* **Question :** Analyse d'un texte sur la dignité et l'assujettissement colonial. a) Présentation du document (Discours d'Ahmed Sékou Touré). b) Commentaire du passage sur l'assujettissement (travaux forcés, impôts, spoliation). c) Conséquences sur l'AOF et la Guinée (Accélération de la décolonisation, NON du 28 septembre 1958 et indépendance le 2 octobre 1958).
+* **Traité :** Le texte est un discours d'Ahmed Sékou Touré (1922-1984), leader du PDG-RDA et premier président guinéen. Il dénonce l'exploitation coloniale (travail forcé, impôts de capitation). En Guinée, cela a abouti au triomphe du « NON » au référendum du 28 septembre 1958 (95% de votes négatifs) et à la proclamation de l'indépendance le 2 octobre 1958.
+
+### Sujet N°10 (BAC 2016 - Sujet A) : Jérusalem et le Proche-Orient
+* **Question :** Commentaire de texte sur Jérusalem et le Proche-Orient. Explication du texte et de l'historique du conflit israélo-palestinien.
+* **Traité :** Jérusalem, ville trois fois sainte (Judaïsme, Christianisme, Islam), est au cœur du conflit israélo-palestinien. Le mouvement sioniste (Herz, 1896) et la déclaration Balfour (1917) ont mené au plan de partage de l'ONU en 1947 et à la création d'Israël en 1948. Les guerres successives (1948, 1956, 1967, 1973) ont enraciné l'instabilité dans la région.
+
+### Sujet N°11 (BAC 2016 - Sujet B) : Rapport de Kofi Annan sur le millénaire
+* **Question :** Commentaire d'un rapport de Kofi Annan (2001) sur les inégalités mondiales, la pauvreté et les conflits. Biographie de Kofi Annan (7e Secrétaire général de l'ONU, Ghana, 1938-2018). Rôle des institutions de l'ONU (PNUD, FAO, OMS, UNESCO) face aux fronts socio-économiques, politiques et militaires.
+* **Traité :** Kofi Annan souligne le contraste entre la prospérité économique et l'extrême pauvreté de millions d'êtres humains. L'ONU intervient à travers ses institutions spécialisées pour éradiquer la faim, garantir l'éducation, promouvoir la santé et maintenir la paix.
+
+### Sujet N°12 (BAC 2017) : L'OUA, l'UA et l'immigration clandestine
+* **Question :** Les jeunes États africains se sont affirmés en créant une organisation continentale (OUA puis UA). Analyse de ses objectifs, bilans, et des défis actuels comme l'immigration clandestine (causes, impact et solutions).
+* **Traité :** Créée le 25 mai 1963 à Addis-Abeba, l'OUA est devenue l'Union Africaine en 2002 à Durban. Face aux défis contemporains (pauvreté, instabilité politique, immigration clandestine vers l'Europe), l'Afrique mise sur la bonne gouvernance, l'unité, la création d'emplois et le développement socio-économique.
+
+### Sujet N°13 (BAC 2018) : Discours de Charles De Gaulle sur l'Empire colonial
+* **Question :** Analyse d'une citation de Charles De Gaulle (« Plutôt que de laisser verser son sang... ») sur la transition de l'empire colonial à la communauté. Explication de la politique algérienne et de la décolonisation de la Guinée française (Rôle de Sékou Touré, PDG-RDA, référendum de 1958).
+* **Traité :** De Gaulle a compris après 1945 qu'il fallait transformer l'empire colonial en union ou communauté pour éviter des guerres ruineuses. En Guinée, le refus de la tutelle française au référendum du 28 septembre 1958 a conduit à l'indépendance totale le 2 octobre 1958.
+
+### Sujet N°14 (BAC 2019 - Sujet 1) : Le Proche-Orient et la Seconde Guerre mondiale
+* **Question :** Analyse géostratégique du Proche-Orient et démonstration de l'inévitabilité de la Seconde Guerre mondiale.
+* **Traité :** (Voir développements précédents sur le Proche-Orient et les crises des années 30).
+
+### Sujet N°15 (BAC 2020) : Citation de Paul Valéry sur la fragilité des civilisations
+* **Question :** Explication de la citation de Paul Valéry (« Nous autres civilisations, nous savons maintenant que nous sommes mortelles ») et analyse du caractère évolutif de la notion de civilisation (du singulier au pluriel).
+* **Traité :** Paul Valéry exprime l'angoisse de l'Europe au lendemain de la Seconde Guerre mondiale après les barbaries nazies. La notion de civilisation ne se limite pas à l'Europe (singulier) mais s'étend à tous les peuples de la Terre (pluriel), car chaque culture est perfectible et périssable si elle perd ses valeurs humaines.
+
+### Sujet N°16 : L'Organisation de l'Unité Africaine (OUA)
+* **Question :** Nommez l'organisation née de la Conférence de Berlin et de la volonté africaine, expliquez ses circonstances de naissance, ses objectifs, ses organes, ses mérites et ses faiblesses.
+* **Traité :** Il s'agit de l'OUA créée le 25 mai 1963 à Addis-Abeba (Éthiopie). Ses objectifs étaient l'unité, la solidarité et l'éradication du colonialisme. Elle comprenait la Conférence des Chefs d'État, le Conseil des Ministres et le Secrétariat Général. Ses mérites incluent la libération de plusieurs pays africains ; ses faiblesses résident dans son incapacité à régler certains conflits armés internes.
+
+### Sujet N°17 : La notion de civilisation et les civilisations africaines
+* **Question :** En s'appuyant sur la citation de Paul Valéry, définissez la notion de civilisation et justifiez la nécessité de revaloriser les civilisations africaines.
+* **Traité :** La civilisation est l'ensemble des acquis matériels et immatériels d'une société. Les civilisations africaines, riches d'un passé prestigieux (empires du Ghana, du Mali, du Songhaï), ont souffert de la traite et de la colonisation. Aujourd'hui, il est impératif de les revaloriser face à la mondialisation culturelle.
+
+### Sujet N°18 (BAC 2020) : Rôle, organes et bilan de l'ONU
+* **Question :** À sa naissance en 1945, l'ONU représentait un espoir pour la paix. Indiquez ses organes, ses objectifs, ses mérites et ses faiblesses.
+* **Traité :** (Voir détails complets au chapitre I sur l'ONU : Assemblée Générale, Conseil de Sécurité, secrétaires généraux, CIJ, mérites en matière de droits de l'homme et faiblesses face au droit de véto).
+
+### Sujet N°19 : La Diaspora Noire
+* **Question :** Montrez que la Diaspora Noire n'est pas un fait du hasard, mais qu'elle est liée à des facteurs historiques, économiques et politiques.
+* **Traité :** La diaspora noire (africains vivant hors d'Afrique) résulte de causes historiques (traite négrière arabe et européenne, colonisation), économiques (recherche d'emploi), politiques (guerres civiles, dictatures) et culturelles (fuite des cerveaux). Elle constitue un pont précieux de solidarité et de développement avec le continent d'origine.
+
+### Sujet N°20 : Le Nouvel Ordre Mondial de l'Information et de la Communication (NOMIC)
+* **Question :** Comment informer l'Afrique du monde et le monde de l'Afrique dans le cadre du NOMIC ?
+* **Traité :** Le NOMIC vise à corriger le déséquilibre entre les pays du Nord (surinformés, monopolisant les agences de presse) et du Sud (sous-informés). Pour l'Afrique, il s'agit de développer ses propres médias (PANA, radios et télés nationales), de promouvoir le partenariat Sud-Sud et de garantir la liberté d'expression.
+
+### Sujet N°21 : De l'OUA à l'Union Africaine (UA)
+* **Question :** Expliquez le processus de passage de l'OUA à l'UA, indiquez ses objectifs, ses principes et ses organes.
+* **Traité :** Face aux limites de l'OUA après 40 ans, le sommet extraordinaire de Syrte en Libye (1999) sous l'impulsion du Col. Kadhafi a jeté les bases de l'Union Africaine, officialisée à Durban en 2002. L'UA vise l'intégration politique et socio-économique, le respect des droits de l'homme et la bonne gouvernance à travers sa Conférence, son Conseil Exécutif et sa Commission.
+
+### Sujet N°22 : Les Indépendances Africaines de 1960
+* **Question :** Les indépendances africaines de 1960, loin d'être un fait du hasard, s'expliquent par une succession logique d'événements. Démontrez.
+* **Traité :** L'année 1960 (l'Année des Indépendances) a vu l'émancipation de 17 pays africains. C'est l'aboutissement logique d'un long processus comprenant la prise de conscience post-1945, l'action des partis politiques (PDG-RDA, etc.), la loi-cadre de 1956, le référendum de 1958 en Guinée et la pression conjuguée de l'ONU et des superpuissances.
+
+### Sujet N°23 : La Diaspora comme trait d'union
+* **Question :** Démontrez que la diaspora constitue un trait d'union entre les nations et les peuples.
+* **Traité :** La diaspora noire et internationale participe activement aux transferts de fonds (remittances), aux investissements économiques, aux transferts de compétences et au rayonnement culturel, devenant ainsi un pont humain et fraternel irremplaçable entre l'Afrique et le reste du monde.`
+  }
+];
+
+const FULL_FALLBACK_SUBJECTS: FallbackSubject[] = [
+  ...BASE_FALLBACK_SUBJECTS,
   // ─── 1. EXAMENS RÉELS OFFICIELS (GUINÉE) ──────────────────────────────────
   {
     id: "bac-math-sm-2021",

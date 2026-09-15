@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BookOpen, Sparkles, Search, CheckCircle2, Clock, Globe, Award, ChevronRight, BookMarked, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FALLBACK_BAC_SUBJECTS } from '../../data/fallbackSubjects';
-import { SubjectViewer } from './SubjectViewer';
+import { CourseViewer } from './CourseViewer';
 import { useAuth } from '../../contexts/AuthContext';
 import { KharandiIcon } from '../icons/KharandiIcon';
 
@@ -34,7 +34,7 @@ export const CoursesFeature: React.FC<{
 
   if (selectedCourse) {
     return (
-      <SubjectViewer 
+      <CourseViewer 
         doc={selectedCourse} 
         username={userProfile?.name || 'Élève'} 
         onClose={() => setSelectedCourse(null)} 

@@ -66,16 +66,35 @@ export const Login: React.FC = () => {
   const [showPwd,       setShowPwd]       = useState(false);
   const [loading,       setLoading]       = useState(false);
   const [error,         setError]         = useState<string|null>(null);
-  const [bannerIdx,     setBannerIdx]     = useState(0);
+  const [featureIdx,    setFeatureIdx]    = useState(0);
   const [hasAccount,    setHasAccount]    = useState<boolean|null>(null);
 
-  const banners = [
-    "https://lh3.googleusercontent.com/d/1IUjSHliHKUAS9Thn4jtRV_pUwgARgkz3",
-    "https://lh3.googleusercontent.com/d/1SnhypXjYCJVOPnEtfvG9LKgJPWcjyudj"
+  const pedagogicalHighlights = [
+    {
+      badge: "Cours & Diaporamas",
+      title: "Apprentissage Interactif",
+      desc: "Diaporamas structurés, résumés synthétiques et quiz d'évaluation notés sur 100 avec validation à 80.",
+      icon: BookOpen,
+      iconColor: "#18bfd6"
+    },
+    {
+      badge: "Examens Officiels",
+      title: "Annales CEE • BEPC • BAC",
+      desc: "Tous les sujets officiels des examens nationaux guinéens avec corrigés et barèmes détaillés.",
+      icon: GraduationCap,
+      iconColor: "#fcb303"
+    },
+    {
+      badge: "Palmarès Éducatif",
+      title: "Classement National des Écoles",
+      desc: "Performances académiques, taux de réussite et fiches détaillées des établissements de Guinée.",
+      icon: Sparkles,
+      iconColor: "#10b981"
+    }
   ];
 
   React.useEffect(() => {
-    const t = setInterval(() => setBannerIdx(p => p === 0 ? 1 : 0), 6000);
+    const t = setInterval(() => setFeatureIdx(p => (p + 1) % 3), 5000);
     return () => clearInterval(t);
   }, []);
 
@@ -359,37 +378,63 @@ export const Login: React.FC = () => {
             </p>
           </div>
 
-          {/* Premium Glass Card Carousel Showcase */}
-          <div className="relative h-[260px] xl:h-[300px] rounded-3xl border border-[#18bfd6]/20 bg-white/80 p-2 backdrop-blur-md overflow-hidden shadow-xl flex flex-col justify-center">
-            <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent z-10 pointer-events-none" />
-            
-            <AnimatePresence mode="wait">
-              <motion.div 
-                key={bannerIdx}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.5 }}
-                className="w-full h-full rounded-2xl overflow-hidden relative flex items-center justify-center bg-slate-50/60"
-              >
-                <img 
-                  src={banners[bannerIdx]} 
-                  alt="Promotionnel" 
-                  className="w-full h-full object-contain p-1" 
-                  referrerPolicy="no-referrer" 
-                />
-              </motion.div>
-            </AnimatePresence>
+          {/* Pedagogical Feature Showcase */}
+          <div className="relative min-h-[220px] rounded-3xl border border-[#18bfd6]/20 bg-white/90 p-6 backdrop-blur-md overflow-hidden shadow-xl flex flex-col justify-between">
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-white to-slate-100/30 -z-10" />
 
-            {/* Dynamic Dots Indicator */}
-            <div className="absolute bottom-4 left-6 z-20 flex gap-1.5">
-              {banners.map((_, i) => (
-                <div 
-                  key={i} 
-                  className={`h-1.5 rounded-full transition-all duration-300 ${bannerIdx === i ? 'w-5 bg-[#18bfd6]' : 'w-1.5 bg-slate-300/80'}`} 
-                />
-              ))}
-            </div>
+            <AnimatePresence mode="wait">
+              {(() => {
+                const item = pedagogicalHighlights[featureIdx];
+                const IconComponent = item.icon;
+                return (
+                  <motion.div
+                    key={featureIdx}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex flex-col justify-between h-full space-y-3"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span 
+                          className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full border shadow-2xs"
+                          style={{ color: item.iconColor, borderColor: `${item.iconColor}40`, backgroundColor: `${item.iconColor}15` }}
+                        >
+                          {item.badge}
+                        </span>
+                        <div 
+                          className="w-9 h-9 rounded-xl flex items-center justify-center shadow-xs"
+                          style={{ backgroundColor: `${item.iconColor}20`, color: item.iconColor }}
+                        >
+                          <IconComponent size={18} />
+                        </div>
+                      </div>
+                      <h3 className="text-lg xl:text-xl font-black text-slate-900 leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed font-medium">
+                        {item.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 flex items-center justify-between border-t border-slate-100">
+                      <span className="text-[11px] font-bold text-slate-400">Programme Officiel MEPU-A & MESRSI</span>
+                      <div className="flex gap-1.5">
+                        {pedagogicalHighlights.map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setFeatureIdx(i)}
+                            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${featureIdx === i ? 'w-6 bg-[#18bfd6]' : 'w-2 bg-slate-300'}`}
+                            aria-label={`Afficher point clé ${i + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })()}
+            </AnimatePresence>
           </div>
 
           {/* Key pillars Grid */}
