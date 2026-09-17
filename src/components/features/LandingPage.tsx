@@ -140,7 +140,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-20"
           >
-            <h3 className="text-3xl md:text-5xl font-black text-[#0D1B2A] mb-4">Les 7 Piliers de Kharandi</h3>
+            <h3 className="text-3xl md:text-5xl font-black text-[#163B45] mb-4">Les 7 Piliers de Kharandi</h3>
             <p className="text-lg text-slate-500 font-medium leading-relaxed">
               Kharandi est une plateforme éducative complète qui accompagne l’élève de bout en bout.
             </p>
@@ -160,7 +160,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   <BookMarked size={24} />
                 </div>
               </div>
-              <h4 className="text-xl font-black text-[#0D1B2A] mb-1">Apprendre</h4>
+              <h4 className="text-xl font-black text-[#163B45] mb-1">Apprendre</h4>
               <p className="text-xs font-bold text-slate-600 mb-4">(contenus + formations)</p>
               <p className="text-sm text-slate-600 leading-relaxed font-medium">
                 Des cours clairs et structurés, des vidéos, des fiches et des formations pour comprendre en profondeur.
@@ -180,7 +180,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   <Pencil size={24} />
                 </div>
               </div>
-              <h4 className="text-xl font-black text-[#0D1B2A] mb-1">S'entraîner</h4>
+              <h4 className="text-xl font-black text-[#163B45] mb-1">S'entraîner</h4>
               <p className="text-xs font-bold text-slate-600 mb-4">(exercices + suivi)</p>
               <p className="text-sm text-slate-600 leading-relaxed font-medium">
                 Des exercices variés et des quiz adaptés à ton niveau pour t'entraîner efficacement avec un suivi personnalisé.
@@ -200,7 +200,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   <Users size={24} />
                 </div>
               </div>
-              <h4 className="text-xl font-black text-[#0D1B2A] mb-1">Être accompagné</h4>
+              <h4 className="text-xl font-black text-[#163B45] mb-1">Être accompagné</h4>
               <p className="text-xs font-bold text-slate-600 mb-4">(répétiteurs)</p>
               <p className="text-sm text-slate-600 leading-relaxed font-medium">
                 Des répétiteurs qualifiés disponibles pour t'aider, répondre à tes questions et t'accompagner dans ta progression.
@@ -220,7 +220,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   <BarChart3 size={24} />
                 </div>
               </div>
-              <h4 className="text-xl font-black text-[#0D1B2A] mb-1">Suivre ses perfs</h4>
+              <h4 className="text-xl font-black text-[#163B45] mb-1">Suivre ses perfs</h4>
               <p className="text-xs font-bold text-slate-600 mb-4">(notes scolaires)</p>
               <p className="text-sm text-slate-600 leading-relaxed font-medium">
                 Un tableau de bord complet pour suivre tes notes, tes progrès et identifier tes axes d'amélioration.
@@ -243,7 +243,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   <Gift size={24} />
                 </div>
               </div>
-              <h4 className="text-xl font-black text-[#0D1B2A] mb-1">Être récompensé</h4>
+              <h4 className="text-xl font-black text-[#163B45] mb-1">Être récompensé</h4>
               <p className="text-xs font-bold text-slate-600 mb-4">(points)</p>
               <p className="text-sm text-slate-600 leading-relaxed font-medium">
                 Gagne des points en apprenant, en t'entraînant et en restant actif sur la plateforme.
@@ -263,7 +263,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   <ShoppingBag size={24} />
                 </div>
               </div>
-              <h4 className="text-xl font-black text-[#0D1B2A] mb-1">Ses avantages</h4>
+              <h4 className="text-xl font-black text-[#163B45] mb-1">Ses avantages</h4>
               <p className="text-xs font-bold text-slate-600 mb-4">(marketplace)</p>
               <p className="text-sm text-slate-600 leading-relaxed font-medium">
                 Utilise tes points dans la marketplace Kharandi pour obtenir des cours, des réductions et des produits utiles à ta réussite.
@@ -283,7 +283,7 @@ export const LandingPage: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
                   <MessageCircle size={24} />
                 </div>
               </div>
-              <h4 className="text-xl font-black text-[#0D1B2A] mb-1 leading-tight">Karamö : le répétiteur IA Kharandi</h4>
+              <h4 className="text-xl font-black text-[#163B45] mb-1 leading-tight">Karamö : le répétiteur IA Kharandi</h4>
               <p className="text-sm text-slate-600 leading-relaxed font-medium mt-4">
                 Ton assistant intelligent disponible 24/7. Il t'aide à réfléchir, comprendre et progresser, sans jamais te donner les réponses toutes faites.
               </p>

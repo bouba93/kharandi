@@ -153,7 +153,7 @@ export const EduLoading: React.FC<{
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
         </span>
-        <p className="text-xs font-extrabold uppercase tracking-widest text-[#0D1B2A]/60">{message}</p>
+        <p className="text-xs font-extrabold uppercase tracking-widest text-[#163B45]/60">{message}</p>
       </div>
 
       <div className="min-h-[140px] px-2 flex flex-col justify-center">

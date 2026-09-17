@@ -376,6 +376,13 @@ export const Dashboard: React.FC = () => {
     }
   }
 
+  const navCategories = [
+    { title: "Principal", ids: ['Accueil', 'Sujets et traités', 'Cours', 'Classes Zoom'] },
+    { title: "Apprentissage & Outils", ids: ['Calcul mental', 'Exo Gagnant', 'Répétiteurs', 'Résultats'] },
+    { title: "Services & Opportunités", ids: ['Bourses', 'Études à l’étranger', 'Palmarès', 'Kharandi Makiti', 'Actualités'] },
+    { title: "Mon Compte", ids: ['Mon Wallet', 'Messages', 'Abonnements', 'Dashboard utilisateur', 'Notifs', 'Support', 'Administration'] }
+  ];
+
   const roleTranslations: Record<string, string> = {
     student: 'Élève',
     eleve: 'Élève',
@@ -397,92 +404,120 @@ export const Dashboard: React.FC = () => {
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
       
       {/* Desktop/Tablet Sidebar */}
-      <aside className="hidden md:flex flex-col w-64 glass-sidebar z-30 sticky top-0 h-screen">
-        <div className="p-6 flex flex-col items-center gap-3">
-          <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm transition-transform hover:scale-105">
+      <aside className="hidden md:flex flex-col w-64 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 z-30 sticky top-0 h-screen shadow-xs">
+        {/* Brand Header */}
+        <div className="p-4 flex items-center gap-3 border-b border-slate-100">
+          <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center overflow-hidden p-1.5 shadow-xs shrink-0">
             <img 
               src="https://lh3.googleusercontent.com/d/1NnKKOKkq_li7F4_dNgGBVUXHR_K2xL55" 
               alt="Kharandi Logo" 
-              className="w-full h-full object-contain p-2"
+              className="w-full h-full object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <h1 className="font-black text-base tracking-tight text-slate-900">Kharandi</h1>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            </div>
+            <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Plateforme Éducative</p>
+          </div>
         </div>
         
-        <div className="px-6 py-4 border-b border-gray-50 mb-2">
-          <p className="font-extrabold text-text-main truncate">
-            {isGuest ? 'Mode Invité' : (userProfile?.name && userProfile.name !== 'Utilisateur' 
-              ? userProfile.name 
-              : (userProfile?.email?.split('@')[0] || 'Utilisateur'))}
-          </p>
-          <div className="flex items-center justify-between mt-1">
-            <span className="font-medium text-xs text-primary bg-primary/10 px-2 py-0.5 rounded-md inline-block">{displayRole}</span>
+        {/* User Card */}
+        <div className="px-3.5 py-2.5 m-3 rounded-2xl bg-slate-50 border border-slate-100">
+          <div className="flex items-center justify-between gap-2">
+            <div className="min-w-0 flex-1">
+              <p className="font-extrabold text-xs text-slate-900 truncate">
+                {isGuest ? 'Mode Invité' : (userProfile?.name && userProfile.name !== 'Utilisateur' 
+                  ? userProfile.name 
+                  : (userProfile?.email?.split('@')[0] || 'Utilisateur'))}
+              </p>
+              <span className="inline-block mt-0.5 text-[9px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-md">
+                {displayRole}
+              </span>
+            </div>
             <button 
               onClick={() => setActiveTab('Dashboard utilisateur')}
-              className="flex items-center gap-1 text-xs font-bold text-accent bg-accent/10 hover:bg-accent/20 px-2 py-0.5 rounded-md border border-accent/20 cursor-pointer transition-all active:scale-95"
+              className="flex items-center gap-1 text-[10px] font-extrabold text-amber-700 bg-amber-50 hover:bg-amber-100/80 px-2 py-1 rounded-xl border border-amber-200/60 cursor-pointer transition-all active:scale-95 shrink-0"
             >
-              <Award size={12} /> {userProfile?.points || 0} pts
+              <Award size={12} className="text-amber-500" />
+              <span>{userProfile?.points || 0} pts</span>
             </button>
           </div>
         </div>
         
-        <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-200">
-          {navItems.map(item => {
-            const isActive = activeTab === item.id;
-            const isLocked = !isFeatureAllowed(item.id);
+        {/* Grouped Navigation */}
+        <nav className="flex-1 px-3 py-1 space-y-3.5 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-200">
+          {navCategories.map(category => {
+            const categoryItems = navItems.filter(item => category.ids.includes(item.id));
+            if (categoryItems.length === 0) return null;
+
             return (
-              <button 
-                key={item.id} 
-                onClick={() => setActiveTab(item.id)}
-                className={`flex items-center gap-4 w-full px-4 py-3.5 rounded-2xl transition-all duration-300 relative ${
-                  isActive ? 'bg-primary text-white shadow-md' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
-                }`}
-              >
-                <div className="relative z-10 flex items-center justify-center">
-                  {item.kIcon ? (
-                    <KharandiIcon 
-                      name={item.kIcon} 
-                      size={26} 
-                      showBackground={false} 
-                      showBookmark={false} 
-                      primaryColor={isActive ? '#FFFFFF' : '#163B45'} 
-                    />
-                  ) : (
-                    <item.icon 
-                      size={22} 
-                      strokeWidth={isActive ? 2.5 : 2}
-                      fill={isActive ? 'currentColor' : 'none'}
-                    />
-                  )}
-                  {item.badge && !isActive && (
-                    <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#C0392B] rounded-full border-2 border-white" />
-                  )}
+              <div key={category.title} className="space-y-0.5">
+                <div className="px-3 pt-1 pb-1 text-[9px] font-black uppercase tracking-widest text-slate-400">
+                  {category.title}
                 </div>
-                <span className={`text-[15px] z-10 flex-1 text-left ${isActive ? 'font-bold' : 'font-medium'}`}>
-                  {item.id}
-                </span>
-                {isLocked && (
-                  <Lock size={14} className={`z-10 ${isActive ? 'text-white/70' : 'text-slate-300'}`} />
-                )}
-                {isActive && (
-                  <motion.div 
-                    layoutId="sidebar-pill" 
-                    className="absolute inset-0 bg-primary rounded-2xl"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
-              </button>
+                {categoryItems.map(item => {
+                  const isActive = activeTab === item.id;
+                  const isLocked = !isFeatureAllowed(item.id);
+                  return (
+                    <button 
+                      key={item.id} 
+                      onClick={() => setActiveTab(item.id)}
+                      className={`flex items-center gap-2.5 w-full px-3 py-2 rounded-xl text-left transition-all duration-200 relative cursor-pointer ${
+                        isActive 
+                          ? 'bg-[#163B45] text-white font-bold shadow-sm' 
+                          : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium'
+                      }`}
+                    >
+                      {isActive && (
+                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-[#18bfd6] rounded-r-full" />
+                      )}
+                      
+                      <div className="relative z-10 flex items-center justify-center shrink-0">
+                        {item.kIcon ? (
+                          <KharandiIcon 
+                            name={item.kIcon} 
+                            size={18} 
+                            showBackground={false} 
+                            showBookmark={false} 
+                            primaryColor={isActive ? '#FFFFFF' : '#163B45'} 
+                          />
+                        ) : (
+                          <item.icon 
+                            size={16} 
+                            strokeWidth={isActive ? 2.5 : 2}
+                          />
+                        )}
+                        {item.badge && !isActive && (
+                          <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#C0392B] rounded-full border-2 border-white" />
+                        )}
+                      </div>
+
+                      <span className="text-xs z-10 flex-1 truncate">
+                        {item.id}
+                      </span>
+
+                      {isLocked && (
+                        <Lock size={12} className={`z-10 shrink-0 ${isActive ? 'text-white/70' : 'text-slate-300'}`} />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             );
           })}
         </nav>
 
-        <div className="p-4 border-t border-gray-50">
+        {/* Footer Logout */}
+        <div className="p-3 border-t border-slate-100">
           <button 
             onClick={handleLogout}
-            className="flex items-center gap-4 w-full px-4 py-3.5 text-red-500 hover:bg-red-50 rounded-2xl transition-all duration-300"
+            className="flex items-center gap-2.5 w-full px-3 py-2 text-red-500 hover:bg-red-50 rounded-xl transition-all duration-200 text-xs font-bold cursor-pointer"
           >
-            <LogOut size={22} />
-            <span className="text-[15px] font-bold">{isGuest ? 'Quitter le mode invité' : 'Se déconnecter'}</span>
+            <LogOut size={16} />
+            <span>{isGuest ? 'Quitter le mode invité' : 'Se déconnecter'}</span>
           </button>
         </div>
       </aside>
@@ -530,7 +565,7 @@ export const Dashboard: React.FC = () => {
         )}
 
         {activeTab !== 'Accueil' && activeTab !== 'Onboarding' && (
-          <div className="px-6 pt-6 md:px-8 pb-2 flex items-center justify-between">
+          <div className="px-6 pt-5 md:px-8 pb-1 flex items-center justify-between">
             <button
               onClick={() => setActiveTab('Accueil')}
               className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-500 hover:text-primary transition-all group shrink-0 cursor-pointer"
@@ -538,7 +573,6 @@ export const Dashboard: React.FC = () => {
               <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform text-primary" />
               Retour à l'accueil
             </button>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-secondary bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">{activeTab}</h2>
           </div>
         )}
 

@@ -97,7 +97,7 @@ export const Profile: React.FC = () => {
               <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold hover:opacity-80 transition-opacity lg:hidden">
                 <ChevronLeft size={20} /> Retour
               </button>
-              <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight hidden lg:block">Informations personnelles</h2>
+              <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight hidden lg:block">Informations personnelles</h2>
               <button 
                 onClick={() => isEditing ? handleUpdateProfile().catch(console.error) : setIsEditing(true)}
                 className="px-6 py-2 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors"
@@ -197,7 +197,7 @@ export const Profile: React.FC = () => {
               <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold hover:opacity-80 transition-opacity lg:hidden">
                 <ChevronLeft size={20} /> Retour
               </button>
-              <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight hidden lg:block">Mon abonnement & Consommation</h2>
+              <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight hidden lg:block">Mon abonnement & Consommation</h2>
             </div>
             <SubscriptionUsageAndBilling initialTab="usage" />
           </motion.div>
@@ -215,7 +215,7 @@ export const Profile: React.FC = () => {
               <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold hover:opacity-80 transition-opacity lg:hidden">
                 <ChevronLeft size={20} /> Retour
               </button>
-              <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight hidden lg:block">Facturation & Téléchargement</h2>
+              <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight hidden lg:block">Facturation & Téléchargement</h2>
             </div>
             <SubscriptionUsageAndBilling initialTab="invoices" />
           </motion.div>
@@ -232,7 +232,7 @@ export const Profile: React.FC = () => {
             <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold mb-6 hover:opacity-80 transition-opacity lg:hidden">
               <ChevronLeft size={20} /> Retour
             </button>
-            <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight mb-6 hidden lg:block">Mes lectures récentes</h2>
+            <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight mb-6 hidden lg:block">Mes lectures récentes</h2>
               {/* History list - currently empty for users */}
               <div className="flex flex-col items-center justify-center py-12 text-center bg-white rounded-3xl border border-dashed border-gray-200">
                 <BookOpen size={48} className="text-gray-300 mb-4" />
@@ -253,7 +253,7 @@ export const Profile: React.FC = () => {
             <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold mb-6 hover:opacity-80 transition-opacity lg:hidden">
               <ChevronLeft size={20} /> Retour
             </button>
-            <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight mb-6 hidden lg:block">Préférences de notifications</h2>
+            <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight mb-6 hidden lg:block">Préférences de notifications</h2>
             <div className="max-w-2xl space-y-4">
               {[
                 { title: "Nouveaux sujets et corrigés", desc: "Soyez alerté dès qu'un nouveau document est disponible dans votre niveau.", active: true },
@@ -286,7 +286,7 @@ export const Profile: React.FC = () => {
             <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold mb-6 hover:opacity-80 transition-opacity lg:hidden">
               <ChevronLeft size={20} /> Retour
             </button>
-            <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight mb-6 hidden lg:block">Sécurité & Appareils</h2>
+            <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight mb-6 hidden lg:block">Sécurité & Appareils</h2>
             <div className="max-w-2xl space-y-6">
               <div className="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100">
                 <h3 className="font-bold text-[18px] text-text-main mb-2">Sécurité du compte</h3>
@@ -329,7 +329,7 @@ export const Profile: React.FC = () => {
             <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold mb-6 hover:opacity-80 transition-opacity lg:hidden">
               <ChevronLeft size={20} /> Retour
             </button>
-            <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight mb-6 hidden lg:block">Kharandi Shield Protection</h2>
+            <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight mb-6 hidden lg:block">Kharandi Shield Protection</h2>
             <div className="max-w-2xl bg-white p-8 rounded-[32px] shadow-sm border border-gray-100 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-40 h-40 bg-red-50 rounded-bl-[100px]" />
               <div className="flex items-center gap-4 mb-6 relative z-10">
@@ -371,7 +371,7 @@ export const Profile: React.FC = () => {
             <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold mb-6 hover:opacity-80 transition-opacity lg:hidden">
               <ChevronLeft size={20} /> Retour
             </button>
-            <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight mb-6 hidden lg:block">Support Client</h2>
+            <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight mb-6 hidden lg:block">Support Client</h2>
             <div className="max-w-2xl space-y-6">
               <div className="bg-white p-6 rounded-[24px] shadow-sm border border-gray-100">
                 <h3 className="font-bold text-[18px] text-text-main mb-6">Contactez-nous</h3>
@@ -420,7 +420,7 @@ export const Profile: React.FC = () => {
             <button onClick={() => setActiveView(null)} className="flex items-center gap-2 text-primary font-bold mb-6 hover:opacity-80 transition-opacity lg:hidden">
               <ChevronLeft size={20} /> Retour
             </button>
-            <h2 className="text-[28px] font-extrabold text-[#0D1B2A] tracking-tight mb-6 hidden lg:block">À propos de Kharandi</h2>
+            <h2 className="text-[28px] font-extrabold text-[#163B45] tracking-tight mb-6 hidden lg:block">À propos de Kharandi</h2>
             <div className="max-w-2xl bg-white p-8 rounded-[32px] shadow-sm border border-gray-100 text-center">
               <div className="w-24 h-24 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-4xl font-extrabold text-primary">K</span>
