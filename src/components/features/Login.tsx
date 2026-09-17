@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '../ui/Button';
-import { Phone, Lock, Eye, EyeOff, AlertCircle, Loader2, Backpack, Pencil, PenTool, Ruler, GraduationCap, BookOpen, CheckCircle2, ArrowLeft, MessageCircle, Mail, ExternalLink, Sparkles, Users, Store, UserCheck, Upload, Trash2, ShieldAlert } from 'lucide-react';
+import { Phone, Lock, Eye, EyeOff, AlertCircle, Loader2, Backpack, Pencil, PenTool, Ruler, GraduationCap, BookOpen, CheckCircle2, ArrowLeft, MessageCircle, Mail, ExternalLink, Sparkles, Users, Store, UserCheck, Upload, Trash2, ShieldAlert, Trophy } from 'lucide-react';
 import { toast } from 'sonner';
 import { api } from '../../config/api';
 import { useAuth } from '../../contexts/AuthContext';
@@ -88,7 +88,7 @@ export const Login: React.FC = () => {
       badge: "Palmarès Éducatif",
       title: "Classement National des Écoles",
       desc: "Performances académiques, taux de réussite et fiches détaillées des établissements de Guinée.",
-      icon: Sparkles,
+      icon: Trophy,
       iconColor: "#10b981"
     }
   ];
