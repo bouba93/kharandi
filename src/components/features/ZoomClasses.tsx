@@ -7,6 +7,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { toast } from 'sonner';
 import { useAuth } from '../../contexts/AuthContext';
+import { InAppClassroom } from './InAppClassroom';
 
 export interface ZoomMeeting {
   id: string;
@@ -106,6 +107,7 @@ export const ZoomClasses: React.FC<ZoomClassesProps> = ({ setActiveTab }) => {
   const [searchFilter, setSearchFilter] = useState('');
   const [levelFilter, setLevelFilter] = useState('all');
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [activeMeeting, setActiveMeeting] = useState<ZoomMeeting | null>(null);
 
   // Quick Join modal/state
   const [directMeetingId, setDirectMeetingId] = useState('');
@@ -155,12 +157,25 @@ export const ZoomClasses: React.FC<ZoomClassesProps> = ({ setActiveTab }) => {
       toast.error('Veuillez renseigner un ID de réunion Zoom valide.');
       return;
     }
-    const zoomUrl = directPasscode 
-      ? `https://zoom.us/j/${cleanId}?pwd=${encodeURIComponent(directPasscode)}`
-      : `https://zoom.us/j/${cleanId}`;
-    
-    window.open(zoomUrl, '_blank', 'noopener,noreferrer');
-    toast.success('Lancement de la réunion Zoom...');
+    const tempMeeting: ZoomMeeting = {
+      id: `direct-${Date.now()}`,
+      title: `Classe Virtuelle (ID ${cleanId})`,
+      subject: 'Cours en Direct',
+      level: 'Tous niveaux',
+      teacherName: 'Professeur Hôte',
+      date: new Date().toISOString().split('T')[0],
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      durationMinutes: 60,
+      meetingUrl: `https://zoom.us/j/${cleanId}${directPasscode ? `?pwd=${encodeURIComponent(directPasscode)}` : ''}`,
+      meetingId: cleanId,
+      passcode: directPasscode || undefined,
+      description: 'Accès direct à la salle de classe virtuelle Kharandi.',
+      isLive: true,
+      participantsCount: 12
+    };
+
+    setActiveMeeting(tempMeeting);
+    toast.success('Entrée dans la classe virtuelle Kharandi...');
   };
 
   const handleCreateMeeting = (e: React.FormEvent) => {
@@ -232,10 +247,20 @@ export const ZoomClasses: React.FC<ZoomClassesProps> = ({ setActiveTab }) => {
     return matchesSearch && matchesLevel;
   });
 
+  if (activeMeeting) {
+    return (
+      <InAppClassroom
+        meeting={activeMeeting}
+        userProfile={userProfile}
+        onClose={() => setActiveMeeting(null)}
+      />
+    );
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
       {/* ── HERO BANNER KHARANDI x ZOOM ── */}
-      <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#0B5CFF] via-[#0042C7] to-[#0A2540] text-white p-6 sm:p-10 shadow-xl">
+      <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#163B45] via-[#1A4B58] to-[#163B45] text-white p-6 sm:p-10 shadow-xl border border-white/10">
         <div className="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-cyan-400/20 blur-3xl pointer-events-none" />
         <div className="absolute left-1/3 -top-12 w-64 h-64 rounded-full bg-blue-300/10 blur-2xl pointer-events-none" />
 
@@ -485,19 +510,16 @@ export const ZoomClasses: React.FC<ZoomClassesProps> = ({ setActiveTab }) => {
 
                   {/* Action Buttons */}
                   <div className="flex items-center gap-2 pt-2 border-t border-slate-100">
-                    <a
-                      href={meeting.meetingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-black transition-all shadow-sm ${
+                    <button
+                      onClick={() => setActiveMeeting(meeting)}
+                      className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-black transition-all shadow-sm cursor-pointer ${
                         meeting.isLive
-                          ? 'bg-[#0B5CFF] hover:bg-blue-600 text-white shadow-blue-200'
-                          : 'bg-slate-900 hover:bg-slate-800 text-white'
+                          ? 'bg-[#18bfd6] hover:bg-[#18bfd6]/90 text-slate-950 shadow-cyan-100'
+                          : 'bg-[#163B45] hover:bg-[#163B45]/90 text-white'
                       }`}
                     >
-                      <Video size={16} /> Rejoindre sur Zoom
-                      <ExternalLink size={13} className="opacity-80" />
-                    </a>
+                      <Video size={16} /> {meeting.isLive ? 'Suivre en Direct (Sur la plateforme)' : 'Rejoindre la classe Kharandi'}
+                    </button>
 
                     <button
                       onClick={() => handleShareWhatsApp(meeting)}
