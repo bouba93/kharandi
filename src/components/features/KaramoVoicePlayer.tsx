@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Pause, Square, Volume2, VolumeX, Sparkles, Bot, FastForward, RotateCcw } from 'lucide-react';
+import { Play, Pause, Square, Volume2, VolumeX, Bot, FastForward, RotateCcw } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { KharandiIcon } from '../icons/KharandiIcon';
 

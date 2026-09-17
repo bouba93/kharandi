@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Video, Calendar, Clock, Users, Link as LinkIcon, Plus, Copy, Check, 
-  ExternalLink, Share2, Sparkles, AlertCircle, BookOpen, GraduationCap, 
+  ExternalLink, Share2, AlertCircle, BookOpen, GraduationCap, 
   HelpCircle, Shield, Play, Search, Filter, PhoneCall, Download, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';

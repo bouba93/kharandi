@@ -3,7 +3,7 @@ import { Button } from '../ui/Button';
 import { PaymentButton } from './PaymentButton';
 import { 
   CheckCircle2, Lock, Menu, X, BookOpen, Trophy, MessageCircle,
-  ZoomIn, ZoomOut, Sun, Moon, FileText, Sparkles, Printer, ArrowLeft,
+  ZoomIn, ZoomOut, Sun, Moon, FileText, Printer, ArrowLeft,
   ChevronRight, ChevronLeft, Bot, Award, Calendar, Volume2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';

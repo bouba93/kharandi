@@ -13,7 +13,6 @@ import {
   ChevronLeft, 
   ChevronRight, 
   Award, 
-  Sparkles, 
   BookOpen, 
   Bookmark, 
   CheckCircle2, 

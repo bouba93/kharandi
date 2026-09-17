@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  ChevronLeft, Clock, Moon, Sun, ZoomIn, ZoomOut, CheckCircle, FileText, BookOpen, Sparkles, Menu, X, Search, Bookmark, Share2, Award, Globe, ArrowRight, RotateCcw, HelpCircle, AlertTriangle, Trophy, ArrowLeft, Video
+  ChevronLeft, Clock, Moon, Sun, ZoomIn, ZoomOut, CheckCircle, FileText, BookOpen, Menu, X, Search, Bookmark, Share2, Award, Globe, ArrowRight, RotateCcw, HelpCircle, AlertTriangle, Trophy, ArrowLeft, Video
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import ReactMarkdown from 'react-markdown';
@@ -404,7 +404,7 @@ export const CourseViewer: React.FC<CourseViewerProps> = ({ doc, username, onClo
           >
             <div className="flex items-center gap-4 border-b pb-6 border-slate-200 dark:border-slate-800">
               <div className="p-4 bg-accent/10 border border-accent/30 rounded-2xl text-accent shadow-sm">
-                <Sparkles size={32} />
+                <BookOpen size={32} />
               </div>
               <div>
                 <h2 className="text-2xl md:text-3xl font-black">Résumé & Points Clés du Cours</h2>

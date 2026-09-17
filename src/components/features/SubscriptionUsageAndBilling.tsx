@@ -6,7 +6,6 @@ import {
   CheckCircle2, 
   Clock, 
   FileText, 
-  Sparkles, 
   Zap, 
   BookOpen, 
   Video, 
@@ -272,7 +271,7 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
-                      <Sparkles size={20} />
+                      <Zap size={20} />
                     </div>
                     <div>
                       <h5 className="font-black text-sm text-slate-900">{usage.quotas.aiKaramo.label}</h5>

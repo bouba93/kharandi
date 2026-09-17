@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '../ui/Button';
-import { Phone, Lock, Eye, EyeOff, AlertCircle, Loader2, Backpack, Pencil, PenTool, Ruler, GraduationCap, BookOpen, CheckCircle2, ArrowLeft, MessageCircle, Mail, ExternalLink, Sparkles, Users, Store, UserCheck, Upload, Trash2, ShieldAlert, Trophy } from 'lucide-react';
+import { Phone, Lock, Eye, EyeOff, AlertCircle, Loader2, Backpack, Pencil, PenTool, Ruler, GraduationCap, BookOpen, CheckCircle2, ArrowLeft, MessageCircle, Mail, ExternalLink, Users, Store, UserCheck, Upload, Trash2, ShieldAlert, Trophy } from 'lucide-react';
 import { toast } from 'sonner';
 import { api } from '../../config/api';
 import { useAuth } from '../../contexts/AuthContext';
@@ -571,7 +571,7 @@ export const Login: React.FC = () => {
                 <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-50 via-slate-50 to-amber-50/50 border border-cyan-200/60 text-left space-y-2.5">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#18bfd6] flex items-center gap-1.5">
-                      <Sparkles size={13} /> Accès Démo Instantané (1-Clic)
+                      Accès Démo Instantané (1-Clic)
                     </span>
                     <span className="text-[9px] font-bold text-slate-400 bg-white px-2 py-0.5 rounded-md border border-slate-200">
                       Sans Code SMS

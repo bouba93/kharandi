@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { 
   Wallet as WalletIcon, ArrowUpRight, ArrowDownLeft, Gift, 
-  ShoppingBag, PenTool, Award, RefreshCw, CreditCard, Sparkles, 
+  ShoppingBag, PenTool, Award, RefreshCw, CreditCard, 
   CheckCircle2, Clock, ShieldCheck, Plus, ArrowRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';

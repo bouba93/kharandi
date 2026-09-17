@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Newspaper, Calendar, ArrowRight, X, Sparkles, BookOpen, Clock, Share2, Printer, AlignLeft } from 'lucide-react';
+import { Newspaper, Calendar, ArrowRight, X, BookOpen, Clock, Share2, Printer, AlignLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { getNews } from '../../services/content';
 import { EduLoading } from './EduLoading';

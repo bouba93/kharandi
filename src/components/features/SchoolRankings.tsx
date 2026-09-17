@@ -14,8 +14,7 @@ import {
   Award, 
   GraduationCap, 
   Lock,
-  CreditCard,
-  Sparkles 
+  CreditCard
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { getSchoolRankings } from '../../services/content';

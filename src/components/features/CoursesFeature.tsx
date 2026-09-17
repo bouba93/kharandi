@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Sparkles, Search, CheckCircle2, Clock, Globe, Award, ChevronRight, BookMarked, User } from 'lucide-react';
+import { BookOpen, Search, CheckCircle2, Clock, Globe, Award, ChevronRight, BookMarked, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FALLBACK_BAC_SUBJECTS } from '../../data/fallbackSubjects';
 import { CourseViewer } from './CourseViewer';
@@ -57,7 +57,7 @@ export const CoursesFeature: React.FC<{
         
         <div className="relative z-10 max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent font-bold text-xs uppercase tracking-wider">
-            <Sparkles size={14} /> Hub Pédagogique Kharandi
+            Hub Pédagogique Kharandi
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
             Cours Officiels & Traités d'Excellence

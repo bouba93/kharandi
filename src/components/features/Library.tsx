@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
   Search, BookOpen, LayoutGrid, List, X, Calendar, Play,
-  Sparkles, Star, Filter, ArrowUpDown, CheckCircle2,
+  Star, Filter, ArrowUpDown, CheckCircle2,
   FileText, Bot, Eye, HelpCircle, RefreshCw, ChevronRight,
   BookMarked, Calculator, Atom, FlaskConical, Leaf, Globe,
   Lightbulb, Loader2, Award, Zap, ArrowLeft
