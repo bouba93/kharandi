@@ -407,7 +407,7 @@ export const Dashboard: React.FC = () => {
       <aside className="hidden md:flex flex-col w-64 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 z-30 sticky top-0 h-screen shadow-xs">
         {/* Brand Header */}
         <div className="p-4 flex items-center gap-3 border-b border-slate-100">
-          <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center overflow-hidden p-1.5 shadow-xs shrink-0">
+          <div className="w-10 h-10 bg-white border border-slate-200 rounded-xl flex items-center justify-center overflow-hidden p-1 shadow-xs shrink-0">
             <img 
               src="https://lh3.googleusercontent.com/d/1NnKKOKkq_li7F4_dNgGBVUXHR_K2xL55" 
               alt="Kharandi Logo" 
