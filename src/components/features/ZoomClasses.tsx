@@ -260,7 +260,7 @@ export const ZoomClasses: React.FC<ZoomClassesProps> = ({ setActiveTab }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
       {/* ── HERO BANNER KHARANDI x ZOOM ── */}
-      <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#163B45] via-[#1A4B58] to-[#163B45] text-white p-6 sm:p-10 shadow-xl border border-white/10">
+      <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#0B5CFF] via-[#0042C7] to-[#0A2540] text-white p-6 sm:p-10 shadow-xl border border-white/10">
         <div className="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-cyan-400/20 blur-3xl pointer-events-none" />
         <div className="absolute left-1/3 -top-12 w-64 h-64 rounded-full bg-blue-300/10 blur-2xl pointer-events-none" />
 
@@ -514,8 +514,8 @@ export const ZoomClasses: React.FC<ZoomClassesProps> = ({ setActiveTab }) => {
                       onClick={() => setActiveMeeting(meeting)}
                       className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-black transition-all shadow-sm cursor-pointer ${
                         meeting.isLive
-                          ? 'bg-[#18bfd6] hover:bg-[#18bfd6]/90 text-slate-950 shadow-cyan-100'
-                          : 'bg-[#163B45] hover:bg-[#163B45]/90 text-white'
+                          ? 'bg-[#0B5CFF] hover:bg-blue-600 text-white shadow-blue-200'
+                          : 'bg-[#0D1B2A] hover:bg-slate-800 text-white'
                       }`}
                     >
                       <Video size={16} /> {meeting.isLive ? 'Suivre en Direct (Sur la plateforme)' : 'Rejoindre la classe Kharandi'}

@@ -41,7 +41,7 @@ export interface Invoice {
     phone: string;
     email: string;
     rccm: string;
-    nif: string;
+    nif?: string;
     website: string;
   };
 }
@@ -95,14 +95,13 @@ export interface SubscriptionUsage {
 
 const DEFAULT_COMPANY = {
   name: "KHARANDI ÉDUCATION GUINÉE",
-  legalStatus: "SARLU au capital de 50 000 000 GNF",
+  legalStatus: "SARL au capital de 10 000 000 GNF",
   address: "Belle-Vue, en Face du commissariat, Commune de Dixinn",
   city: "Conakry",
   country: "République de Guinée",
   phone: "+224 626 18 71 17",
   email: "contactkharandi@gmail.com",
-  rccm: "GN.TCC.2024.B.04189",
-  nif: "005938491M",
+  rccm: "GN.TCC.2022.B.14786",
   website: "https://kharandi.gn",
 };
 
@@ -116,7 +115,11 @@ export function getUserInvoices(userProfile: any): Invoice[] {
 
   if (stored) {
     try {
-      return JSON.parse(stored);
+      const parsed: Invoice[] = JSON.parse(stored);
+      return parsed.map(inv => ({
+        ...inv,
+        company: DEFAULT_COMPANY
+      }));
     } catch (e) {
       console.error("Erreur lecture factures:", e);
     }
@@ -394,8 +397,8 @@ export function printInvoiceDocument(invoice: Invoice) {
     .invoice-card { max-width: 800px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
     
     .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #f1f5f9; padding-bottom: 28px; margin-bottom: 28px; }
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .logo-badge { width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #18bfd6, #0e8b9c); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 900; }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .logo-img { width: 64px; height: 64px; object-fit: contain; }
     .brand-title { font-size: 20px; font-weight: 900; color: #0f172a; letter-spacing: -0.5px; }
     .brand-sub { font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
     
@@ -455,7 +458,7 @@ export function printInvoiceDocument(invoice: Invoice) {
   <div class="invoice-card">
     <div class="header">
       <div class="brand">
-        <div class="logo-badge">K</div>
+        <img src="https://lh3.googleusercontent.com/d/1NnKKOKkq_li7F4_dNgGBVUXHR_K2xL55" alt="Kharandi Logo" class="logo-img" />
         <div>
           <h1 class="brand-title">KHARANDI ÉDUCATION</h1>
           <p class="brand-sub">Plateforme Éducative Nationale de Guinée</p>
@@ -475,7 +478,7 @@ export function printInvoiceDocument(invoice: Invoice) {
         <div class="party-detail">${invoice.company.legalStatus}</div>
         <div class="party-detail">${invoice.company.address}</div>
         <div class="party-detail">${invoice.company.city} - ${invoice.company.country}</div>
-        <div class="party-detail">RCCM : ${invoice.company.rccm} | NIF : ${invoice.company.nif}</div>
+        <div class="party-detail">RCCM : ${invoice.company.rccm}${invoice.company.nif ? ` | NIF : ${invoice.company.nif}` : ''}</div>
         <div class="party-detail">Tél : ${invoice.company.phone}</div>
       </div>
 

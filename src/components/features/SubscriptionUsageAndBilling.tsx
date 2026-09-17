@@ -534,8 +534,13 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
               {/* INVOICE PREVIEW HEADER */}
               <div className="border-b border-slate-100 pb-6 mb-6 flex items-start justify-between gap-4 pr-12">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#18bfd6] to-teal-600 text-white font-black text-xl flex items-center justify-center shadow-md">
-                    K
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-xs shrink-0 overflow-hidden">
+                    <img 
+                      src="https://lh3.googleusercontent.com/d/1NnKKOKkq_li7F4_dNgGBVUXHR_K2xL55" 
+                      alt="Kharandi Logo" 
+                      className="w-full h-full object-contain"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                   <div>
                     <h3 className="font-black text-xl text-slate-900">KHARANDI ÉDUCATION GUINÉE</h3>
@@ -557,8 +562,9 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
                 <div>
                   <span className="font-black uppercase tracking-wider text-slate-400 block mb-1">Prestataire</span>
                   <div className="font-black text-slate-900">{selectedInvoice.company.name}</div>
+                  <div className="text-slate-600 font-medium">{selectedInvoice.company.legalStatus}</div>
                   <div className="text-slate-600">{selectedInvoice.company.address}</div>
-                  <div className="text-slate-600">RCCM : {selectedInvoice.company.rccm} · NIF : {selectedInvoice.company.nif}</div>
+                  <div className="text-slate-600">RCCM : {selectedInvoice.company.rccm}{selectedInvoice.company.nif ? ` · NIF : ${selectedInvoice.company.nif}` : ''}</div>
                   <div className="text-slate-600">Tél : {selectedInvoice.company.phone}</div>
                 </div>
 

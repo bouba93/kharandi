@@ -48,7 +48,7 @@ export const CoursesFeature: React.FC<{
       <motion.div 
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#163B45] via-[#1A4B58] to-[#163B45] p-8 md:p-12 text-white shadow-xl border border-white/10"
+        className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#0D1B2A] via-[#1b2a4a] to-[#0D1B2A] p-8 md:p-12 text-white shadow-xl border border-white/10"
       >
         <div className="absolute -right-10 -bottom-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute right-20 top-10 opacity-10 pointer-events-none">

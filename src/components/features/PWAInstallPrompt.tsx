@@ -56,7 +56,7 @@ export const PWAInstallPrompt: React.FC = () => {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-6 left-6 right-6 z-[100] md:left-auto md:right-6 md:w-96"
         >
-          <div className="bg-[#163B45] text-white p-5 rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/10 flex items-center gap-4">
+          <div className="bg-[#0D1B2A] text-white p-5 rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/10 flex items-center gap-4">
             <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center shrink-0">
               <Download className="text-primary" size={24} />
             </div>
@@ -67,7 +67,7 @@ export const PWAInstallPrompt: React.FC = () => {
             <div className="flex flex-col gap-2">
               <button
                 onClick={handleInstallClick}
-                className="bg-primary hover:bg-primary/90 text-[#163B45] px-4 py-2 rounded-xl text-[13px] font-bold transition-colors"
+                className="bg-primary hover:bg-primary/90 text-[#0D1B2A] px-4 py-2 rounded-xl text-[13px] font-bold transition-colors"
               >
                 Installer
               </button>
