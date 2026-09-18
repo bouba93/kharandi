@@ -50,12 +50,9 @@ function AppRoutes() {
 
   if (!isAuthReady || !minLoadingDone) return <LoadingScreen />;
 
-  // Maintenance désactivée globalement : tout utilisateur a pleinement accès à la plateforme
-  const isExcludedFromMaintenance = true;
-
-  const isLoginPath = window.location.pathname === '/login';
-
-  if (!isExcludedFromMaintenance && !isLoginPath) {
+  // Maintenance activée strictement pour tous les utilisateurs
+  const isMaintenanceActive = true;
+  if (isMaintenanceActive) {
     return <MaintenanceMode />;
   }
 

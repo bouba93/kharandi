@@ -197,23 +197,6 @@ export const MaintenanceMode: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Discreet Entrance Link for Admins & VIPs */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-4 flex flex-col sm:flex-row items-center gap-3 justify-center w-full max-w-md px-4"
-        >
-          <button 
-            type="button"
-            onClick={() => navigate('/login')}
-            className="w-full sm:w-auto group flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#18bfd6] to-[#15adc1] hover:from-[#15adc1] hover:to-[#18bfd6] text-white cursor-pointer shadow-lg shadow-[#18bfd6]/10 hover:shadow-xl hover:shadow-[#18bfd6]/20 transition-all text-xs font-black uppercase tracking-wider transform active:scale-95 duration-200"
-          >
-            <Shield size={13} className="text-white" />
-            <span>Portail VIP / Admin</span>
-          </button>
-        </motion.div>
-
       </div>
 
       {/* Footer copyright in Kharandi font-mono */}
