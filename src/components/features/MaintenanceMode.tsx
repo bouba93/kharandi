@@ -3,9 +3,22 @@ import { motion } from 'motion/react';
 import { Wrench, Shield, ArrowRight, Heart, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-export const MaintenanceMode: React.FC = () => {
+interface MaintenanceModeProps {
+  onGuestAccess?: () => void;
+}
+
+export const MaintenanceMode: React.FC<MaintenanceModeProps> = ({ onGuestAccess }) => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState({ hours: 48, minutes: 0, seconds: 0 });
+
+  const handleGuestAccess = () => {
+    if (onGuestAccess) {
+      onGuestAccess();
+    } else {
+      localStorage.setItem('bypass_maintenance', 'true');
+      window.location.reload();
+    }
+  };
 
   useEffect(() => {
     const key = 'kharandi_maintenance_until';
@@ -195,6 +208,23 @@ export const MaintenanceMode: React.FC = () => {
             <Heart size={14} className="fill-current text-rose-500 animate-pulse" />
             <span>À très vite sur Kharandi !</span>
           </div>
+        </motion.div>
+
+        {/* Guest Access Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mb-8 w-full max-w-xs px-4"
+        >
+          <button 
+            type="button"
+            onClick={handleGuestAccess}
+            className="w-full group flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#18bfd6] to-[#15adc1] hover:from-[#15adc1] hover:to-[#18bfd6] text-white cursor-pointer shadow-lg shadow-[#18bfd6]/10 hover:shadow-xl hover:shadow-[#18bfd6]/20 transition-all text-xs font-black uppercase tracking-wider transform active:scale-95 duration-200"
+          >
+            <span>Accéder en tant qu'invité</span>
+            <ArrowRight size={13} className="text-white group-hover:translate-x-1 transition-transform" />
+          </button>
         </motion.div>
 
       </div>

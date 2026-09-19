@@ -123,12 +123,12 @@ export const SchoolRankings: React.FC = () => {
         </div>
       )}
 
-      {/* HERO HEADER - BANNIÈRE OFFICIELLE KHARANDI PALMARÈS */}
+      {/* HERO HEADER - COULEURS KHARANDI AVEC IMAGE DE COUVERTURE */}
       <div className="relative overflow-hidden rounded-[32px] bg-white border border-slate-200/80 shadow-xl">
         <img 
           src="/palmeres.png" 
           alt="Palmarès des Écoles - Kharandi" 
-          className="w-full h-auto object-cover object-center rounded-[32px]"
+          className="w-full h-auto object-cover object-center"
           referrerPolicy="no-referrer"
         />
       </div>

@@ -1167,31 +1167,28 @@ export const AdminDashboard: React.FC = () => {
       )}
 
       {/* Sidebar */}
-      <aside className="hidden lg:flex flex-col w-64 bg-white/95 backdrop-blur-xl border-r border-slate-200/80 h-screen sticky top-0 shadow-xs">
-        <div className="p-4 border-b border-slate-100">
+      <aside className="hidden lg:flex flex-col w-64 bg-white border-r border-slate-100 h-screen sticky top-0 shadow-sm">
+        <div className="p-6 border-b border-slate-100">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center shrink-0">
-              <Shield size={20} className="text-[#18bfd6]" />
+            <div className="w-10 h-10 bg-primary/10 rounded-2xl flex items-center justify-center">
+              <Shield size={20} className="text-primary" />
             </div>
-            <div className="min-w-0">
-              <p className="font-black text-slate-900 text-sm tracking-tight truncate">Kharandi Admin</p>
-              <p className="text-[11px] text-slate-400 font-medium truncate">{userProfile?.phone || userProfile?.email}</p>
+            <div>
+              <p className="font-black text-slate-900 text-sm">Kharandi Admin</p>
+              <p className="text-xs text-slate-400">{userProfile?.phone || userProfile?.email}</p>
             </div>
           </div>
         </div>
 
-        <nav className="flex-1 p-3 space-y-1 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-200">
+        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {tabs.map(tab => (
             <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all relative cursor-pointer
-                ${activeTab === tab.id ? 'bg-[#0D1B2A] text-white shadow-xs' : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'}`}>
-              {activeTab === tab.id && (
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-4 bg-[#18bfd6] rounded-r-full" />
-              )}
-              <tab.icon size={16} />
-              <span className="flex-1 text-left truncate">{tab.label}</span>
+              className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all
+                ${activeTab === tab.id ? 'bg-primary text-white shadow-md shadow-primary/20' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}>
+              <tab.icon size={18} />
+              <span className="flex-1 text-left">{tab.label}</span>
               {tab.badge ? (
-                <span className={`px-2 py-0.5 rounded-full text-[10px] font-black ${activeTab === tab.id ? 'bg-white/20 text-white' : 'bg-primary/10 text-primary'}`}>
+                <span className={`px-2 py-0.5 rounded-full text-xs font-black ${activeTab === tab.id ? 'bg-white/20' : 'bg-primary/10 text-primary'}`}>
                   {tab.badge}
                 </span>
               ) : null}
@@ -1199,14 +1196,14 @@ export const AdminDashboard: React.FC = () => {
           ))}
         </nav>
 
-        <div className="p-3 border-t border-slate-100 space-y-1">
+        <div className="p-4 border-t border-slate-100">
           <button onClick={() => { window.location.href = '/'; }}
-            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer">
-            <ChevronRight size={16} className="rotate-180" /> <span>Retour à l'app</span>
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold text-slate-500 hover:bg-slate-50 transition-colors">
+            <ChevronRight size={18} className="rotate-180" /> Retour à l'app
           </button>
           <button onClick={logout}
-            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-red-500 hover:bg-red-50 transition-colors cursor-pointer">
-            <LogOut size={16} /> <span>Déconnexion</span>
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold text-red-500 hover:bg-red-50 transition-colors mt-1">
+            <LogOut size={18} /> Déconnexion
           </button>
         </div>
       </aside>

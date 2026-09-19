@@ -6,6 +6,7 @@ import {
   CheckCircle2, 
   Clock, 
   FileText, 
+  Bot, 
   Zap, 
   BookOpen, 
   Video, 
@@ -71,54 +72,6 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
     } finally {
       setTimeout(() => setDownloadingId(null), 800);
     }
-  };
-
-  const handleGenerateDemoInvoice = (planType: 'annuel' | 'palmares' | 'repetiteur') => {
-    const targetUser = userProfile || {
-      name: 'Élève Démo Kharandi',
-      phone: '+224 620 12 34 56',
-      email: 'demo@kharandi.gn',
-      city: 'Conakry, Guinée',
-      role: 'STUDENT'
-    };
-    
-    let details: {
-      planId: string;
-      planName: string;
-      amount: number;
-      period: string;
-      paymentMethod: 'Orange Money Guinée' | 'MTN Mobile Money' | 'Carte Bancaire' | 'Wallet Kharandi';
-    } = {
-      planId: 'annuel',
-      planName: 'Offre Élève Premium Annuel (Kharandi 365)',
-      amount: 45000,
-      period: 'Annuel (365 jours)',
-      paymentMethod: 'Orange Money Guinée',
-    };
-    if (planType === 'palmares') {
-      details = {
-        planId: 'palmares',
-        planName: 'Pass Palmarès National des Écoles & Fiches d\'Évaluation',
-        amount: 250000,
-        period: 'Annuel (365 jours)',
-        paymentMethod: 'MTN Mobile Money',
-      };
-    } else if (planType === 'repetiteur') {
-      details = {
-        planId: 'repetiteur',
-        planName: 'Abonnement Répétiteur Certifié & Mise en relation',
-        amount: 50000,
-        period: 'Mensuel (30 jours)',
-        paymentMethod: 'Orange Money Guinée',
-      };
-    }
-
-    const newInv = recordNewInvoice(targetUser, details);
-    setInvoices(getUserInvoices(targetUser));
-    setUsage(getSubscriptionUsage(targetUser));
-    toast.success(`Facture démo ${newInv.id} générée !`);
-    setTab('invoices');
-    setSelectedInvoice(newInv);
   };
 
   const formatGNF = (n: number) => new Intl.NumberFormat('fr-GN').format(n) + ' GNF';
@@ -271,7 +224,7 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
-                      <Zap size={20} />
+                      <Bot size={20} />
                     </div>
                     <div>
                       <h5 className="font-black text-sm text-slate-900">{usage.quotas.aiKaramo.label}</h5>
@@ -534,13 +487,8 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
               {/* INVOICE PREVIEW HEADER */}
               <div className="border-b border-slate-100 pb-6 mb-6 flex items-start justify-between gap-4 pr-12">
                 <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-xs shrink-0 overflow-hidden">
-                    <img 
-                      src="https://lh3.googleusercontent.com/d/1NnKKOKkq_li7F4_dNgGBVUXHR_K2xL55" 
-                      alt="Kharandi Logo" 
-                      className="w-full h-full object-contain"
-                      referrerPolicy="no-referrer"
-                    />
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#18bfd6] to-teal-600 text-white font-black text-xl flex items-center justify-center shadow-md">
+                    K
                   </div>
                   <div>
                     <h3 className="font-black text-xl text-slate-900">KHARANDI ÉDUCATION GUINÉE</h3>
@@ -562,9 +510,8 @@ export const SubscriptionUsageAndBilling: React.FC<Props> = ({
                 <div>
                   <span className="font-black uppercase tracking-wider text-slate-400 block mb-1">Prestataire</span>
                   <div className="font-black text-slate-900">{selectedInvoice.company.name}</div>
-                  <div className="text-slate-600 font-medium">{selectedInvoice.company.legalStatus}</div>
                   <div className="text-slate-600">{selectedInvoice.company.address}</div>
-                  <div className="text-slate-600">RCCM : {selectedInvoice.company.rccm}{selectedInvoice.company.nif ? ` · NIF : ${selectedInvoice.company.nif}` : ''}</div>
+                  <div className="text-slate-600">RCCM : {selectedInvoice.company.rccm} · NIF : {selectedInvoice.company.nif}</div>
                   <div className="text-slate-600">Tél : {selectedInvoice.company.phone}</div>
                 </div>
 

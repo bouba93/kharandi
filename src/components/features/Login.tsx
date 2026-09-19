@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '../ui/Button';
-import { Phone, Lock, Eye, EyeOff, AlertCircle, Loader2, Backpack, Pencil, PenTool, Ruler, GraduationCap, BookOpen, CheckCircle2, ArrowLeft, MessageCircle, Mail, ExternalLink, Users, Store, UserCheck, Upload, Trash2, ShieldAlert, Trophy } from 'lucide-react';
+import { Phone, Lock, Eye, EyeOff, AlertCircle, Loader2, Backpack, Pencil, PenTool, Ruler, GraduationCap, BookOpen, CheckCircle2, ArrowLeft, MessageCircle, Mail, ExternalLink, Trophy, Users, Store, UserCheck, Upload, Trash2, ShieldAlert } from 'lucide-react';
 import { toast } from 'sonner';
 import { api } from '../../config/api';
 import { useAuth } from '../../contexts/AuthContext';
@@ -567,81 +567,9 @@ export const Login: React.FC = () => {
                   />
                 </div>
 
-                {/* BLOC ACCÈS DÉMO INSTANTANÉ */}
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-50 via-slate-50 to-amber-50/50 border border-cyan-200/60 text-left space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-[#18bfd6] flex items-center gap-1.5">
-                      Accès Démo Instantané (1-Clic)
-                    </span>
-                    <span className="text-[9px] font-bold text-slate-400 bg-white px-2 py-0.5 rounded-md border border-slate-200">
-                      Sans Code SMS
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-slate-600 font-medium">
-                    Explorez immédiatement Kharandi avec des comptes pré-configurés :
-                  </p>
-                  <div className="grid grid-cols-2 gap-2 pt-0.5">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setGuestMode(true, 'student');
-                        toast.success("Bienvenue en mode Démo Élève / Étudiant Premium !");
-                        _go();
-                      }}
-                      className="p-2.5 bg-white hover:bg-cyan-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-[#18bfd6] cursor-pointer group"
-                    >
-                      <div className="text-xs font-black text-slate-900 group-hover:text-[#18bfd6] flex items-center gap-1">
-                        🎓 Élève Démo
-                      </div>
-                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Pass Annuel Actif</div>
-                    </button>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setGuestMode(true, 'repetiteur');
-                        toast.success("Bienvenue en mode Démo Professeur / Répétiteur !");
-                        _go();
-                      }}
-                      className="p-2.5 bg-white hover:bg-emerald-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-emerald-500 cursor-pointer group"
-                    >
-                      <div className="text-xs font-black text-slate-900 group-hover:text-emerald-600 flex items-center gap-1">
-                        👨‍🏫 Prof Démo
-                      </div>
-                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Répétiteur Vérifié</div>
-                    </button>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setGuestMode(true, 'seller');
-                        toast.success("Bienvenue en mode Démo Vendeur Kharandi Makiti !");
-                        _go();
-                      }}
-                      className="p-2.5 bg-white hover:bg-purple-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-purple-500 cursor-pointer group"
-                    >
-                      <div className="text-xs font-black text-slate-900 group-hover:text-purple-600 flex items-center gap-1">
-                        🏪 Vendeur Démo
-                      </div>
-                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Librairie Makiti</div>
-                    </button>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setGuestMode(true, 'admin');
-                        toast.success("Bienvenue en mode Démo Administrateur !");
-                        _go();
-                      }}
-                      className="p-2.5 bg-white hover:bg-amber-50 text-slate-800 rounded-xl border border-slate-200 text-left transition-all shadow-2xs hover:border-amber-500 cursor-pointer group"
-                    >
-                      <div className="text-xs font-black text-slate-900 group-hover:text-amber-600 flex items-center gap-1">
-                        🛡️ Admin Démo
-                      </div>
-                      <div className="text-[10px] text-slate-400 font-bold mt-0.5">Gestion Globale</div>
-                    </button>
-                  </div>
-                </div>
               </motion.div>
             )}
 
@@ -957,6 +885,28 @@ export const Login: React.FC = () => {
               )}
             </Button>
           </form>
+
+          {/* Demo Access Button */}
+          {step === 'phone' && (
+            <div className="mt-4 mb-2 flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <div className="h-px flex-1 bg-slate-200/60" />
+                <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest">Ou</span>
+                <div className="h-px flex-1 bg-slate-200/60" />
+              </div>
+              
+              <button
+                type="button"
+                onClick={() => {
+                  setGuestMode(true);
+                }}
+                className="w-full py-3.5 px-5 rounded-[20px] border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-95 transition-all cursor-pointer shadow-2xs hover:shadow-xs"
+              >
+                <Users size={14} className="text-[#18bfd6]" />
+                <span>Accéder en Mode Démo</span>
+              </button>
+            </div>
+          )}
 
           {/* Slogan footnote */}
           <p className="text-[11px] text-slate-400 font-medium leading-relaxed px-4">

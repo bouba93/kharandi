@@ -22,8 +22,7 @@ import {
   Tags,
   BadgePercent,
   Compass,
-  Layers,
-  Sparkle
+  Layers
 } from 'lucide-react';
 import { useCart } from '../../contexts/CartContext';
 import { useAuth } from '../../contexts/AuthContext';

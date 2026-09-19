@@ -18,22 +18,13 @@ import { StandaloneNewsReader } from './components/features/StandaloneNewsReader
 import { StandaloneResultsReader } from './components/features/StandaloneResultsReader';
 
 function AppRoutes() {
-  const queryParams = new URLSearchParams(window.location.search);
-  const isSharedArticle = queryParams.has('article');
-  const isSharedResults = queryParams.has('results') || queryParams.has('result');
-
-  if (isSharedArticle) {
-    return <StandaloneNewsReader />;
-  }
-
-  if (isSharedResults) {
-    return <StandaloneResultsReader />;
-  }
-
   const { userProfile, isGuest, isAuthReady, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const [minLoadingDone, setMinLoadingDone] = React.useState(false);
   const [justFinishedOnboarding, setJustFinishedOnboarding] = React.useState(false);
+  const [bypassMaintenance, setBypassMaintenance] = React.useState(() => {
+    return localStorage.getItem('bypass_maintenance') === 'true';
+  });
 
   React.useEffect(() => {
     const isFirstTime = !sessionStorage.getItem('first_connection_done');
@@ -50,10 +41,25 @@ function AppRoutes() {
 
   if (!isAuthReady || !minLoadingDone) return <LoadingScreen />;
 
-  // Maintenance activée strictement pour tous les utilisateurs
-  const isMaintenanceActive = true;
-  if (isMaintenanceActive) {
-    return <MaintenanceMode />;
+  // Maintenance active de façon stricte et absolue pour tous les utilisateurs, sauf si bypass invité
+  if (!bypassMaintenance) {
+    return <MaintenanceMode onGuestAccess={() => {
+      localStorage.setItem('bypass_maintenance', 'true');
+      setBypassMaintenance(true);
+    }} />;
+  }
+
+  // Permettre l'accès aux articles partagés et résultats partagés même en bypass
+  const queryParams = new URLSearchParams(window.location.search);
+  const isSharedArticle = queryParams.has('article');
+  const isSharedResults = queryParams.has('results') || queryParams.has('result');
+
+  if (isSharedArticle) {
+    return <StandaloneNewsReader />;
+  }
+
+  if (isSharedResults) {
+    return <StandaloneResultsReader />;
   }
 
   const isAuthenticated = !!userProfile || isGuest;

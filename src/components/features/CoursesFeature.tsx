@@ -57,7 +57,7 @@ export const CoursesFeature: React.FC<{
         
         <div className="relative z-10 max-w-2xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent font-bold text-xs uppercase tracking-wider">
-            Hub Pédagogique Kharandi
+            <Award size={14} /> Hub Pédagogique Kharandi
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
             Cours Officiels & Traités d'Excellence

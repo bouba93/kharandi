@@ -24,10 +24,7 @@ import {
   FileText,
   UserCheck,
   Newspaper,
-  Video,
-  Wallet,
-  CreditCard,
-  PenTool
+  Video
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { HomeSkeleton } from '../ui/Skeleton';
@@ -135,12 +132,12 @@ export const HomeContent: React.FC<{
       quickAccess: [
         { title: "Classes Zoom en direct", subtitle: "Cours virtuels & révisions en visio", icon: Video, kIcon: "zoom" as KharandiIconName, tab: "Classes Zoom", color: "bg-[#0B5CFF]" },
         { title: "Sujets & Traités", subtitle: "CEE, BEPC, BAC corrigés", icon: Award, kIcon: "examen" as KharandiIconName, tab: "Sujets et traités", color: "bg-blue-600" },
-        { title: "Cours & Leçons", subtitle: "Fiches, cours interactifs & leçons", icon: GraduationCap, kIcon: "cours" as KharandiIconName, tab: "Cours", color: "bg-indigo-600" },
-        { title: "Exo Gagnant", subtitle: "Concours & exercices de révision", icon: PenTool, kIcon: "exercices" as KharandiIconName, tab: "Exo Gagnant", color: "bg-purple-600" },
-        { title: "Résultats & Bulletins", subtitle: "Résultats officiels des examens", icon: Award, kIcon: "examen" as KharandiIconName, tab: "Résultats", color: "bg-rose-500" },
-        { title: "Bourses d'études", subtitle: "Opportunités nationales et internationales", icon: Briefcase, kIcon: "bourse" as KharandiIconName, tab: "Bourses", color: "bg-blue-700" },
-        { title: "Études à l'étranger", subtitle: "Programmes & universités partenaires", icon: Globe, kIcon: "voyage" as KharandiIconName, tab: "Études à l’étranger", color: "bg-sky-600" },
+        { title: "Calcul mental — Abacus", subtitle: "Boulier Soroban & Anzan flash", icon: Brain, kIcon: "abacus" as KharandiIconName, tab: "Calcul mental", color: "bg-cyan-500" },
+        { title: "Bourses d'études", subtitle: "Opportunités nationales et internationales", icon: Briefcase, kIcon: "bourse" as KharandiIconName, tab: "Bourses", color: "bg-indigo-600" },
+        { title: "Études à l'étranger", subtitle: "Programmes & universités partenaires", icon: Globe, kIcon: "voyage" as KharandiIconName, tab: "Études à l’étranger", color: "bg-teal-600" },
         { title: "Actualités scolaires", subtitle: "Réformes et infos examens en Guinée", icon: Newspaper, kIcon: "actualites" as KharandiIconName, tab: "Actualités", color: "bg-blue-500" },
+        { title: "Palmarès des écoles", subtitle: "Classements officiels des établissements", icon: Trophy, kIcon: "palmares" as KharandiIconName, tab: "Palmarès", color: "bg-amber-500" },
+        { title: "Bons plans & Offres", subtitle: "Réductions exclusives et pass privilèges", icon: Gift, kIcon: "bourse" as KharandiIconName, tab: "Abonnements", color: "bg-rose-500" },
       ]
     },
     teacher: {
@@ -360,12 +357,7 @@ export const HomeContent: React.FC<{
         {/* Quick Access Categories tailored to role */}
         <motion.div variants={itemVariants}>
            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight">Explorer</h2>
-                <span className="bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full border border-emerald-300">
-                  Services 100% Gratuits
-                </span>
-              </div>
+              <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">Accès rapides ({role === 'student' ? 'Élève' : role === 'teacher' || role === 'repetiteur' ? 'Enseignant' : role === 'parent' ? 'Parent' : role === 'seller' ? 'Vendeur' : 'Admin'})</h2>
            </div>
            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
               {activeRoleConfig.quickAccess.map((qa, idx) => (
