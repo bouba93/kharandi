@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/TailwindCSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/Firebase-Firestore-FFCA28?style=for-the-badge&logo=firebase" alt="Firebase" />
   <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=nodedotjs" alt="Node.js" />
-  <img src="https://img.shields.io/badge/I.A.-Google%20Gemini-4285F4?style=for-the-badge&logo=google" alt="Gemini AI" />
+  <img src="https://img.shields.io/badge/I.A.-Karamo%20AI-0D1B2A?style=for-the-badge" alt="Karamo AI" />
 </p>
 
 ---
@@ -27,8 +27,8 @@ Du niveau Élémentaire (CEE) au Collège (BEPC), Lycée (BAC) et Supérieur, Kh
 ## ✨ Fonctionnalités Principales
 
 ### 🤖 1. Karamo AI — Tutorat Intelligent & Vocal 24/7
-* **Assistant Pédagogique Avancé** : Basé sur les modèles d'intelligence artificielle Gemini, adapté au programme national guinéen.
-* **Module Karamo Voice** : Interactions vocales fluides pour poser ses questions et écouter les explications synthétisées.
+* **Assistant Pédagogique Avancé** : Moteur d'intelligence artificielle pédagogique conçu sur-mesure pour s'adapter rigoureusement au programme national guinéen.
+* **Module Karamo Voice** : Interactions vocales fluides pour poser ses questions à l'oral et écouter les explications synthétisées.
 * **Résolution d'Exercices & Formules** : Explication pas-à-pas des problèmes de Mathématiques, Physique, Chimie, Biologie et Philosophie avec formules formatées en KaTeX.
 
 ### 👨‍🏫 2. Soutien Scolaire & Répétiteurs à Domicile
@@ -83,7 +83,7 @@ Du niveau Élémentaire (CEE) au Collège (BEPC), Lycée (BAC) et Supérieur, Kh
 | **Composants & Icônes** | Lucide React, Recharts (Graphiques de progression), KaTeX & React Markdown |
 | **Backend & Proxy API** | Node.js, Express, TSX, Proxy d'APIs sécurisé (`server.ts`) |
 | **Base de Données & Auth** | Firebase Firestore, Firebase Authentication (RBAC Rules) |
-| **Intelligence Artificielle** | Google Gemini API (`@google/genai` SDK), Karamo Voice TTS |
+| **Intelligence Artificielle** | Moteur I.A. Pédagogique Kharandi & Synthèse Vocale Karamo Voice |
 | **Communications SMS** | NimbaSMS SDK (OTP & Notifications) |
 | **Analyse de Documents** | `pdf-parse`, `csv-parse` pour l'indexation des résultats d'examens |
 
@@ -104,7 +104,7 @@ Du niveau Élémentaire (CEE) au Collège (BEPC), Lycée (BAC) et Supérieur, Kh
 │   │   └── icons/           # Icônes SVG sur mesure
 │   ├── contexts/            # Contextes React (AuthContext, CartContext, ThemeContext)
 │   ├── data/                # Mock data et structures initiales
-│   ├── lib/                 # Utilitaires d'initialisation (Firebase, Gemini)
+│   ├── lib/                 # Utilitaires d'initialisation (Firebase, Karamo AI)
 │   ├── services/            # Services métier (Auth, Payments, AI, Orders, Marketplace)
 │   ├── utils/               # Helper functions & formatteurs
 │   ├── App.tsx              # Composant racine et routage applicatif
@@ -137,8 +137,8 @@ npm install
 Créer un fichier `.env` à la racine du projet (copier depuis `.env.example`) :
 
 ```env
-# Clé d'API Gemini pour Karamo AI
-GEMINI_API_KEY=votre_cle_gemini
+# Clé d'API d'I.A. pour Karamo
+AI_API_KEY=votre_cle_ai
 
 # Clé NimbaSMS pour les SMS en Guinée
 NIMBASMS_SECRET_KEY=votre_cle_nimbasms
