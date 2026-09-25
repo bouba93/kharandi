@@ -41,13 +41,7 @@ function AppRoutes() {
 
   if (!isAuthReady || !minLoadingDone) return <LoadingScreen />;
 
-  // Maintenance active de façon stricte et absolue pour tous les utilisateurs, sauf si bypass invité
-  if (!bypassMaintenance) {
-    return <MaintenanceMode onGuestAccess={() => {
-      localStorage.setItem('bypass_maintenance', 'true');
-      setBypassMaintenance(true);
-    }} />;
-  }
+  // Maintenance désactivée - Accès direct à l'application
 
   // Permettre l'accès aux articles partagés et résultats partagés même en bypass
   const queryParams = new URLSearchParams(window.location.search);
