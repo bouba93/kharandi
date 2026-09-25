@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
   ChevronLeft, Clock, Moon, Sun, ZoomIn, ZoomOut, CheckCircle, FileText, BookOpen, Menu, X, Search, Bookmark, Share2, Award, Globe, ArrowRight, RotateCcw, HelpCircle, AlertTriangle, Trophy, ArrowLeft, Video,
-  Play, Pause, Maximize2, Minimize2, LayoutGrid, Layers, Eye
+  Play, Pause, Maximize2, Minimize2, LayoutGrid, Layers, Eye, HardDriveDownload, Check
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { saveReadingProgress, getReadingProgress } from '../../services/content';
+import { useOffline } from '../../contexts/OfflineContext';
 
 interface CourseViewerProps {
   doc: any;
@@ -16,6 +17,7 @@ interface CourseViewerProps {
 }
 
 export const CourseViewer: React.FC<CourseViewerProps> = ({ doc, username, onClose }) => {
+  const { saveCourseForOffline, removeCourseFromOffline, isCourseSavedOffline } = useOffline();
   const [dark, setDark] = useState(false);
   const [fontSize, setFontSize] = useState(18);
   const [activeTab, setActiveTab] = useState<'slides' | 'summary' | 'quiz'>('slides');
@@ -314,6 +316,36 @@ export const CourseViewer: React.FC<CourseViewerProps> = ({ doc, username, onClo
               <Video size={14} />
               <span>Visio Zoom</span>
             </a>
+
+            <button
+              onClick={async () => {
+                if (isCourseSavedOffline(doc.id)) {
+                  await removeCourseFromOffline(doc.id);
+                } else {
+                  await saveCourseForOffline({ ...doc, slides });
+                }
+              }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-sm border ${
+                isCourseSavedOffline(doc.id)
+                  ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-600 dark:text-emerald-400'
+                  : dark
+                  ? 'bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-200'
+                  : 'bg-slate-100 border-slate-200 hover:bg-slate-200 text-slate-700'
+              }`}
+              title={isCourseSavedOffline(doc.id) ? "Disponible hors-ligne dans IndexedDB" : "Enregistrer pour réviser hors-ligne"}
+            >
+              {isCourseSavedOffline(doc.id) ? (
+                <>
+                  <Check size={14} className="text-emerald-500" />
+                  <span className="hidden sm:inline">Hors-ligne prêt</span>
+                </>
+              ) : (
+                <>
+                  <HardDriveDownload size={14} />
+                  <span className="hidden sm:inline">Sauvegarder hors-ligne</span>
+                </>
+              )}
+            </button>
 
             <button onClick={() => setDark(!dark)} 
               className={`p-2.5 rounded-xl border transition-colors ${dark ? 'bg-slate-800 border-slate-700 text-yellow-400' : 'bg-slate-100 border-slate-200 text-slate-700'}`}

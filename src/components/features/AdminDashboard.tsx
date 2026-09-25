@@ -852,41 +852,41 @@ export const AdminDashboard: React.FC = () => {
 
   const fetchNewsList = async () => {
     try {
-      const { data } = await api.get('/content/news/');
+      const { data } = await api.get('/content/news/', { timeout: 5000 });
       setNewsItems(data?.data || []);
-    } catch (err) {
-      console.error("fetchNewsList error:", err);
+    } catch {
+      setNewsItems([]);
     }
   };
 
   const fetchScholarshipList = async () => {
     try {
-      const { data } = await api.get('/content/study-abroad/');
+      const { data } = await api.get('/content/study-abroad/', { timeout: 5000 });
       setScholarshipItems(data?.data || []);
-    } catch (err) {
-      console.error("fetchScholarshipList error:", err);
+    } catch {
+      setScholarshipItems([]);
     }
   };
 
   const fetchResultList = async () => {
     try {
-      const { data } = await api.get('/content/news/');
+      const { data } = await api.get('/content/news/', { timeout: 5000 });
       const all = data?.data || [];
       setResultItems(all.filter((n: any) =>
         n.category === 'exam' || n.category === 'résultat' ||
         n.category === 'BAC'  || n.category === 'BEPC'
       ));
-    } catch (err) {
-      console.error("fetchResultList error:", err);
+    } catch {
+      setResultItems([]);
     }
   };
 
   const fetchPalmaresList = async () => {
     try {
-      const { data } = await api.get('/content/school-rankings/');
+      const { data } = await api.get('/content/school-rankings/', { timeout: 5000 });
       setPalmaresItems(data?.data || []);
-    } catch (err) {
-      console.error("fetchPalmaresList error:", err);
+    } catch {
+      setPalmaresItems([]);
     }
   };
 

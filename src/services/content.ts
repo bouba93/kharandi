@@ -2,16 +2,16 @@ import { api } from "../config/api";
 import { MOCK_SCHOLARSHIPS, MOCK_STUDY_ABROAD } from "../data/mockData";
 
 export const getNews = async () => {
-  try { const { data } = await api.get("/content/news/"); return data?.data || []; }
+  try { const { data } = await api.get("/content/news/", { timeout: 5000 }); return data?.data || []; }
   catch { return []; }
 };
 export const getSchoolRankings = async () => {
-  try { const { data } = await api.get("/content/school-rankings/"); return data?.data || []; }
+  try { const { data } = await api.get("/content/school-rankings/", { timeout: 5000 }); return data?.data || []; }
   catch { return []; }
 };
 export const getStudyAbroad = async () => {
   try { 
-    const { data } = await api.get("/content/study-abroad/"); 
+    const { data } = await api.get("/content/study-abroad/", { timeout: 5000 }); 
     const list = data?.data || [];
     return list.length ? list : MOCK_STUDY_ABROAD;
   }
@@ -21,7 +21,7 @@ export const getStudyAbroad = async () => {
 };
 export const getScholarships = async () => {
   try { 
-    const { data } = await api.get("/content/scholarships/"); 
+    const { data } = await api.get("/content/scholarships/", { timeout: 5000 }); 
     const list = data?.data || [];
     return list.length ? list : MOCK_SCHOLARSHIPS; 
   }
@@ -31,12 +31,12 @@ export const getScholarships = async () => {
 };
 export const getResults = async () => {
   try {
-    const { data } = await api.get("/content/news/");
+    const { data } = await api.get("/content/news/", { timeout: 5000 });
     const all = data?.data || [];
     return all.filter((n: any) => ['exam','résultat','BAC','BEPC'].includes(n.category));
   } catch { return []; }
 };
-export const getTutorAds       = async (f?: any) => { const p = new URLSearchParams(f||{}); const { data } = await api.get(`/content/tutor-ads/?${p}`); return data?.data || []; };
+export const getTutorAds       = async (f?: any) => { try { const p = new URLSearchParams(f||{}); const { data } = await api.get(`/content/tutor-ads/?${p}`, { timeout: 5000 }); return data?.data || []; } catch { return []; } };
 export const createTutorAd     = async (payload: any) => { const { data } = await api.post("/content/tutor-ads/", payload); return data?.data; };
 export const deleteTutorAd     = (id: string) => api.delete(`/content/tutor-ads/${id}/`);
 export const getNotifications  = async () => { const { data } = await api.get("/content/notifications/"); return data?.data || []; };

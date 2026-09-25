@@ -9,6 +9,8 @@ import { PaymentFailure }  from './components/features/PaymentFailure';
 import { PWAInstallPrompt} from './components/features/PWAInstallPrompt';
 import { CartProvider }    from './contexts/CartContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { OfflineProvider }   from './contexts/OfflineContext';
+import { OfflineIndicator }  from './components/features/OfflineIndicator';
 import { ErrorBoundary }   from './components/ErrorBoundary';
 import { Toaster }         from 'sonner';
 import { AdminDashboard }  from './components/features/AdminDashboard';
@@ -99,8 +101,11 @@ export default function App() {
     <ErrorBoundary>
       <AuthProvider>
         <CartProvider>
-          <AppRoutes />
-          <Toaster position="top-center" richColors />
+          <OfflineProvider>
+            <AppRoutes />
+            <OfflineIndicator />
+            <Toaster position="top-center" richColors />
+          </OfflineProvider>
         </CartProvider>
       </AuthProvider>
     </ErrorBoundary>

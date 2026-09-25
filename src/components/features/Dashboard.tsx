@@ -31,6 +31,7 @@ import { AbacusModule } from './abacus/AbacusModule';
 import { Wallet } from './Wallet';
 import { OnboardingTutorial, useOnboarding } from './OnboardingTutorial';
 import { useAuth } from '../../contexts/AuthContext';
+import { useOffline } from '../../contexts/OfflineContext';
 import { toast } from 'sonner';
 
 
@@ -70,8 +71,15 @@ export const Dashboard: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname;
   const { userProfile, isGuest, setGuestMode, logout } = useAuth();
+  const { cacheDashboardData } = useOffline();
   const role = userProfile?.role || 'student';
   const subscriptionPlan = userProfile?.subscriptionPlan || 'free';
+
+  useEffect(() => {
+    if (userProfile) {
+      cacheDashboardData('user_profile', userProfile).catch(() => {});
+    }
+  }, [userProfile, cacheDashboardData]);
 
   const { show: showOnboardingTutorial, close: closeOnboardingTutorial } = useOnboarding(role);
 

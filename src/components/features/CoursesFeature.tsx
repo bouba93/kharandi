@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Search, CheckCircle2, Clock, Globe, Award, ChevronRight, BookMarked, User } from 'lucide-react';
+import { BookOpen, Search, CheckCircle2, Clock, Globe, Award, ChevronRight, BookMarked, User, HardDriveDownload, WifiOff } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FALLBACK_BAC_SUBJECTS } from '../../data/fallbackSubjects';
 import { CourseViewer } from './CourseViewer';
 import { useAuth } from '../../contexts/AuthContext';
+import { useOffline } from '../../contexts/OfflineContext';
 import { KharandiIcon } from '../icons/KharandiIcon';
 
 export const CoursesFeature: React.FC<{
@@ -11,9 +12,11 @@ export const CoursesFeature: React.FC<{
   setActiveTab?: (tab: string) => void;
 }> = ({ onOpenKaramo, setActiveTab }) => {
   const { userProfile } = useAuth();
+  const { isOnline, offlineCourses, isCourseSavedOffline } = useOffline();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourse, setSelectedCourse] = useState<any | null>(null);
   const [coursesList, setCoursesList] = useState<any[]>([]);
+  const [showOnlyOffline, setShowOnlyOffline] = useState(false);
 
   useEffect(() => {
     // Filter courses from fallback subjects or API
@@ -23,7 +26,9 @@ export const CoursesFeature: React.FC<{
     setCoursesList(courses);
   }, []);
 
-  const filteredCourses = coursesList.filter((course: any) => {
+  const baseList = showOnlyOffline ? offlineCourses : coursesList;
+
+  const filteredCourses = baseList.filter((course: any) => {
     const q = searchQuery.toLowerCase();
     return (
       (course.title && course.title.toLowerCase().includes(q)) ||
@@ -80,40 +85,52 @@ export const CoursesFeature: React.FC<{
             className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary shadow-sm"
           />
         </div>
-        <div className="flex items-center gap-2 text-xs font-bold text-slate-500">
-          <span className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-sm">
-            {filteredCourses.length} cours disponible{filteredCourses.length > 1 ? 's' : ''}
-          </span>
+        <div className="flex items-center gap-2 text-xs font-bold">
+          <button
+            onClick={() => setShowOnlyOffline(false)}
+            className={`px-3.5 py-2 rounded-xl transition-all border ${!showOnlyOffline ? 'bg-primary text-white border-primary shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
+          >
+            Tous les cours ({coursesList.length})
+          </button>
+          <button
+            onClick={() => setShowOnlyOffline(true)}
+            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl transition-all border ${showOnlyOffline ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}`}
+          >
+            <HardDriveDownload size={14} />
+            Hors-ligne ({offlineCourses.length})
+          </button>
         </div>
       </div>
 
       {/* Courses Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredCourses.map((course: any, idx: number) => (
-          <motion.div
-            key={course.id || idx}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.05 }}
-            onClick={() => setSelectedCourse(course)}
-            className="group bg-white rounded-[24px] border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 cursor-pointer flex flex-col justify-between"
-          >
-            <div className="space-y-4">
-              <div className="flex items-start justify-between gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-inner">
-                  <BookMarked size={24} />
-                </div>
-                <div className="flex flex-col items-end gap-1">
-                  <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px] border border-slate-200">
-                    {course.level || 'Terminale'}
-                  </span>
-                  {course.year && (
-                    <span className="text-[10px] font-semibold text-slate-400">
-                      Édition {course.year}
+        {filteredCourses.map((course: any, idx: number) => {
+          const isSavedLocally = isCourseSavedOffline(course.id);
+          return (
+            <motion.div
+              key={course.id || idx}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.05 }}
+              onClick={() => setSelectedCourse(course)}
+              className="group bg-white rounded-[24px] border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-inner">
+                    <BookMarked size={24} />
+                  </div>
+                  <div className="flex flex-col items-end gap-1">
+                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px] border border-slate-200">
+                      {course.level || 'Terminale'}
                     </span>
-                  )}
+                    {isSavedLocally && (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-extrabold text-[10px] border border-emerald-200">
+                        <HardDriveDownload size={10} /> Hors-ligne
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
               <div>
                 <h3 className="font-extrabold text-lg text-slate-900 group-hover:text-primary transition-colors line-clamp-2">
@@ -141,7 +158,8 @@ export const CoursesFeature: React.FC<{
               </span>
             </div>
           </motion.div>
-        ))}
+        );
+      })}
       </div>
 
       {filteredCourses.length === 0 && (

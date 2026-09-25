@@ -65,7 +65,7 @@ export async function fetchWithAuth(endpoint: string, options: RequestInit = {})
   return response;
 }
 
-export const api = axios.create({ baseURL: BASE_URL, headers: { "Content-Type": "application/json" }, timeout: 60000 });
+export const api = axios.create({ baseURL: BASE_URL, headers: { "Content-Type": "application/json" }, timeout: 10000 });
 let isRefreshing = false;
 let failedQueue: any[] = [];
 const processQueue = (error: any, token: string | null = null) => {
